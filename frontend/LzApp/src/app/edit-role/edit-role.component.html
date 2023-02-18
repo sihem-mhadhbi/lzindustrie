@@ -1,0 +1,38 @@
+<div class="head">
+  <h3>Edit Role</h3>
+  <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+</div>
+
+<form class="example-form">
+  <div class="firstLine" *ngFor="let item of dataA">
+    <mat-form-field class="example-full-width">
+      <mat-label>*Role name </mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+    <div class="space"></div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Role description</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+  </div>
+
+  <mat-radio-group aria-label="Select an option"
+    >Role type
+    <mat-radio-button value="1">System role</mat-radio-button>
+    <mat-radio-button value="2">Store role</mat-radio-button>
+  </mat-radio-group>
+
+  <section style="padding-top: 10px">
+    Role Permission <br />
+    <mat-checkbox class="example-margin">Store management</mat-checkbox><br />
+    <mat-checkbox class="example-margin">System data</mat-checkbox><br />
+    <mat-checkbox class="example-margin">System template</mat-checkbox><br />
+    <mat-checkbox class="example-margin">System record</mat-checkbox>
+  </section>
+
+  <div class="footer">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary">Confirm</button>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+.example-form {
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 80%;
+    margin: auto;
+}
+.example-full-width {
+    width: 90%;
+}
+.mat-icon{
+    cursor: pointer;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    background-color:#cccccc;
+    height: 60px;
+}
+h3{
+    font-weight: bold;
+}
+.footer{
+    margin-top: 30px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.space{
+    width: 80px;
+    height: auto;
+}

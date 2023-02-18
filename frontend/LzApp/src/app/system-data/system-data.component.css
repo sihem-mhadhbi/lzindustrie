@@ -1,0 +1,14 @@
+.container{
+    margin-left: 120px;
+}
+table{
+    width: 100%;
+}
+td .mat-icon{
+    cursor: pointer;
+}
+mat-form-field{
+    height: 70px;
+    width: 130px;
+    font-size: small;
+}

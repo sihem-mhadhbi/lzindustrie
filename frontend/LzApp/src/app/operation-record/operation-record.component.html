@@ -1,0 +1,74 @@
+<div class="container">
+  <mat-toolbar>
+    <div class="field">
+      <mat-form-field appearance="fill">
+        <mat-label style="font-size: small; height: 10%">ESL</mat-label>
+        <mat-select disabled>
+          <mat-option value="one" disabled="yes">First option</mat-option>
+          <mat-option value="two" disabled="yes">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>All operation type</mat-label>
+        <mat-select disabled>
+          <mat-option value="one" disabled="yes">First option</mat-option>
+          <mat-option value="two" disabled="yes">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>All operation result</mat-label>
+        <mat-select disabled>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <span matPrefix> </span>
+        <input
+          type="tel"
+          matInput
+          placeholder="Search"
+          name="search"
+          [(ngModel)]="search"
+        />
+        <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button class="butt" (click)="export()">
+      Export
+      <mat-icon>cloud_download</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <table class="table">
+    <thead>
+      <tr class="table-light">
+        <th>S/N</th>
+        <th>Mac address of ESL</th>
+        <th>Id</th>
+        <th>Updating time</th>
+        <th>Operation type</th>
+        <th>Operation result</th>
+        <th>price</th>
+        <th>name</th>
+        <th>Number</th>
+        <th>Operate</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of data2">
+      <tr>
+        <td>{{ item.sn }}</td>
+        <td>{{ item.mac_address_esl }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.updating_time }}</td>
+        <td>{{ item.operation_type }}</td>
+        <td>{{ item.operator }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.Number }}</td>
+        <td>{{ item.operator }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,61 @@
+<div class="head">
+  <h3>Add store</h3>
+  <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="add(f)">
+  <mat-form-field class="example-full-width">
+    <mat-label>*Store no </mat-label>
+    <input
+      type="number"
+      id="store_no"
+      required
+      #store_no="ngModel"
+      name="store_no"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>*Store name </mat-label>
+    <input
+      type="text"
+      id="storeName"
+      required
+      #storeName="ngModel"
+      name="storeName"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>*Store address </mat-label>
+    <input
+      matInput
+      id="storeAddress"
+      required
+      name="storeAddress"
+      #storeAddress="ngModel"
+      ngModel
+    /> </mat-form-field
+  ><br />
+
+  Store image <img src="#" alt="" />
+  <input
+    type="file"
+    id="storeImage"
+    name="storeImage"
+    #storeImage="ngModel"
+    ngModel
+  />
+
+  <div class="footer">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
+</form>

@@ -1,0 +1,46 @@
+<div class="head">
+    <h3 mat-dialog-title>Edit</h3>
+    <mat-icon mat-dialog-close style="padding: 10px 0;">exit_to_app</mat-icon>
+</div>
+
+<form class="example-form">
+    <div>
+        <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>*Username</mat-label>
+            <input type="text" matInput required/>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>*Mobile phone</mat-label>
+            <input type="text" matInput required/>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>*Email</mat-label>
+            <input type="text" matInput  required/>
+        </mat-form-field>
+        <mat-form-field style="width: 90%;">
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-hint>Enter your password</mat-hint>
+        </mat-form-field>
+        <mat-radio-group aria-label="Select an option">
+            <label>Status</label>
+            <mat-radio-button value="1">Normal</mat-radio-button>
+            <mat-radio-button value="2">Disable</mat-radio-button>
+          </mat-radio-group>
+        <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>Remarks</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+    </div>
+      
+
+    <div class="footer" mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <div class="space"></div>
+        <button mat-raised-button color="primary">Confirm</button>
+    </div>
+</form>

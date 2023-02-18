@@ -1,0 +1,40 @@
+<div class="head">
+  <h3 mat-dialog-title>Add</h3>
+  <mat-icon mat-dialog-close style="padding: 10px 0">exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="addG(f)">
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>*Mac name</mat-label>
+      <input
+        type="text"
+        id="macName"
+        required
+        #macName="ngModel"
+        name="macName"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>*Mac address</mat-label>
+      <input
+        type="text"
+        id="macAddress"
+        required
+        #macAddress="ngModel"
+        name="macAddress"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <div class="footer" mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
+</form>

@@ -1,0 +1,99 @@
+<div class="head">
+  <h3 mat-dialog-title>Add</h3>
+  <mat-icon mat-dialog-close style="padding: 10px 0">exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="addD(f)">
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Id</mat-label>
+    <input
+      type="number"
+      id="id"
+      required
+      #id="ngModel"
+      name="id"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Name</mat-label>
+    <input
+      type="text"
+      id="name"
+      required
+      #name="ngModel"
+      name="name"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Barcode</mat-label>
+    <input
+      type="text"
+      id="barcode"
+      required
+      #barcode="ngModel"
+      name="barcode"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>SN</mat-label>
+    <input
+      type="text"
+      id="SN"
+      required
+      #SN="ngModel"
+      name="SN"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Price</mat-label>
+    <input
+      type="text"
+      id="price_per_unit"
+      required
+      #price_per_unit="ngModel"
+      name="price_per_unit"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Number</mat-label>
+    <input
+      type="number"
+      id="number"
+      required
+      #number="ngModel"
+      name="number"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" aria-required="true">
+    <mat-label>Status</mat-label>
+    <input
+      type="text"
+      id="status"
+      required
+      #status="ngModel"
+      name="status"
+      matInput
+      ngModel
+    />
+  </mat-form-field>
+</form>
+
+<div class="footer" mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <div class="space"></div>
+  <button mat-raised-button color="primary" [disabled]="f.invalid">
+    Confirm
+  </button>
+</div>

@@ -1,0 +1,536 @@
+<div class="container">
+  <mat-tab-group dynamicHeight>
+    <!--Role management
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    ------------------------->
+    <mat-tab label="Role management">
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin: 10px; float: right"
+        (click)="addRole()"
+      >
+        <mat-icon>add</mat-icon>
+        Add
+      </button>
+      <table class="table">
+        <thead>
+          <tr class="table-light">
+            <th>Role Name</th>
+            <th>Role Description</th>
+            <th>Role type</th>
+            <th>Operate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of dataArray2; index as i">
+          <tr>
+            <td>{{ item.roleName }}</td>
+            <td>{{ item.roleDescription }}</td>
+            <td>{{ item.roleType }}</td>
+            <td>
+              <mat-icon
+                (click)="
+                  getro(
+                    item.roleName,
+                    item.roleDescription,
+                    item.roleType,
+                    item.role_id
+                  )
+                "
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >edit</mat-icon
+              >
+              <mat-icon (click)="deleteR(item.role_id, i)"
+                >delete_outline</mat-icon
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <!--Staff management
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    ------------------------->
+    <mat-tab label="Staff management">
+      <nav class="navbar">
+        <mat-form-field appearance="fill" style="font-size: small">
+          <mat-label>All Status</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width search">
+          <span matPrefix> </span>
+          <input
+            type="tel"
+            matInput
+            placeholder="Search"
+            name="search"
+            [(ngModel)]="search"
+          />
+          <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+
+        <div class="buttons">
+          <button
+            mat-raised-button
+            style="background: #6699ff"
+            (click)="addBatch()"
+          >
+            <mat-icon>add</mat-icon>
+            Batch Add
+          </button>
+          <button mat-raised-button color="primary" (click)="addStaff()">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+          <button mat-raised-button color="warn" (click)="DeleteStaff()">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </nav>
+
+      <table class="table">
+        <thead>
+          <tr class="table-light">
+            <th><mat-checkbox></mat-checkbox></th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Mobile Phone</th>
+            <th>Email</th>
+            <th>remarks</th>
+            <th>Status</th>
+            <th>Operate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of dataArray1; index as i">
+          <tr>
+            <td><mat-checkbox></mat-checkbox></td>
+            <td>{{ item.username }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.mobile_phone }}</td>
+            <td>{{ item.Email }}</td>
+            <td>{{ item.remarks }}</td>
+            <td>{{ item.status }}</td>
+
+            <td>
+              <mat-icon
+                (click)="
+                  getst(
+                    item.username,
+                    item.name,
+                    item.mobile_phone,
+                    item.Email,
+                    item.remarks,
+                    item.status,
+                    item.staff_id
+                  )
+                "
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModalstaff"
+                >edit</mat-icon
+              >
+
+              <mat-icon (click)="deleteS(item.staff_id, i)"
+                >delete_outline</mat-icon
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <!--Permission assignment
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    --------------------------
+    ------------------------->
+    <mat-tab label="Permission assignment">
+      <nav class="navbar">
+        <mat-form-field appearance="fill">
+          <mat-label style="font-size: small; height: 10%"
+            >All role types</mat-label
+          >
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left: -30px">
+          <mat-label style="font-size: small; height: 10%">All roles</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left: -30px">
+          <mat-label style="font-size: small; height: 10%"
+            >All Stores</mat-label
+          >
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field
+          class="example-full-width search"
+          style="margin-left: -20px"
+        >
+          <span matPrefix> </span>
+          <input
+            type="tel"
+            matInput
+            placeholder="Search"
+            name="search"
+            [(ngModel)]="search"
+          />
+          <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+
+        <div class="buttons">
+          <button
+            mat-raised-button
+            style="background: #6699ff"
+            (click)="batchConfiguration()"
+          >
+            <mat-icon>add</mat-icon>
+            Batch Configurate
+          </button>
+          <button mat-raised-button color="primary" (click)="addPermission()">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+          <button mat-raised-button color="warn" (click)="deletePermission()">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </nav>
+
+      <table class="table">
+        <thead>
+          <tr class="table-light">
+            <th><mat-checkbox></mat-checkbox></th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>mobile_phone</th>
+            <th>Email</th>
+            <th>Operate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of dataArray3; index as i">
+          <tr>
+            <td><mat-checkbox></mat-checkbox></td>
+            <td>{{ item.username }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.mobile_phone }}</td>
+            <td>{{ item.Email }}</td>
+            <td>
+              <mat-icon
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModapermission"
+                (click)="getP(item.username, item.permission_id)"
+                >edit</mat-icon
+              >
+              <mat-icon (click)="delete(item.permission_id, i)"
+                >delete_outline</mat-icon
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Role</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="example-form" #f="ngForm" (ngSubmit)="editnewRole(f)">
+          <div class="firstLine">
+            <mat-form-field class="example-full-width">
+              <mat-label>Role name </mat-label>
+              <input
+                type="text"
+                placeholder="roleName"
+                [(ngModel)]="dataT.roleName"
+                name="roleName"
+                #roleName="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <div class="space"></div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Role description</mat-label>
+              <input
+                type="text"
+                placeholder="roleDescription"
+                [(ngModel)]="dataT.roleDescription"
+                name="roleDescription"
+                #roleDescription="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+          </div>
+
+          <mat-radio-group aria-label="Select an option"
+            >Role type
+            <mat-radio-button value="1">System role</mat-radio-button>
+            <mat-radio-button value="2">Store role</mat-radio-button>
+          </mat-radio-group>
+
+          <section style="padding-top: 10px">
+            Role Permission <br />
+            <mat-checkbox class="example-margin">Store management</mat-checkbox
+            ><br />
+            <mat-checkbox class="example-margin">System data</mat-checkbox
+            ><br />
+            <mat-checkbox class="example-margin">System template</mat-checkbox
+            ><br />
+            <mat-checkbox class="example-margin">System record</mat-checkbox>
+          </section>
+
+          <div class="footer">
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Confirm</button>
+          </div>
+        </form>
+      </div>
+      <div class="alert alert-success" *ngIf="messageSuccess">
+        {{ messageSuccess }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal staff-->
+
+<div
+  class="modal fade"
+  id="exampleModalstaff"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="example-form" #s="ngForm" (ngSubmit)="editnewstaff(s)">
+          <div>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>*Username</mat-label>
+              <input
+                type="text"
+                placeholder="username"
+                [(ngModel)]="dataF.username"
+                name="username"
+                #username="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>Name</mat-label>
+              <input
+                type="text"
+                placeholder="name"
+                [(ngModel)]="dataF.name"
+                name="name"
+                #name="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>*Mobile phone</mat-label>
+              <input
+                type="text"
+                placeholder="mobile_phone"
+                [(ngModel)]="dataF.mobile_phone"
+                name="mobile_phone"
+                #mobile_phone="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>*Email</mat-label>
+              <input
+                type="text"
+                placeholder="Email"
+                [(ngModel)]="dataF.Email"
+                name="Email"
+                #Email="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field style="width: 90%">
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                placeholder="Password"
+                required
+              />
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+              <mat-hint>Enter your password</mat-hint>
+            </mat-form-field>
+            <mat-radio-group aria-label="Select an option">
+              <label>Status</label>
+              <mat-radio-button value="1">Normal</mat-radio-button>
+              <mat-radio-button value="2">Disable</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>Remarks</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="footer" mat-dialog-actions>
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="alert alert-success" *ngIf="messageSuccesss">
+      {{ messageSuccesss }}
+    </div>
+  </div>
+</div>
+<!--modal permission-->
+<div
+  class="modal fade"
+  id="exampleModapermission"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit permission</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          class="example-form"
+          #p="ngForm"
+          (ngSubmit)="editnewspermission(p)"
+        >
+          <div class="firstLine">Basic info</div>
+          <mat-form-field class="example-full-width">
+            <mat-label>*Username</mat-label>
+            <input
+              type="text"
+              placeholder="username"
+              [(ngModel)]="dataP.username"
+              name="username"
+              #username="ngModel"
+              required
+              ngModel
+              matInput
+            />Username
+          </mat-form-field>
+
+          <div class="firstLine">Assign System Authority</div>
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>*System role</mat-label>
+            <mat-select>
+              <mat-option value="option">role</mat-option>
+              <mat-option value="option">Shop manager</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="firstLine">Assign Store Authority</div>
+          <div class="line">
+            <mat-form-field appearance="fill">
+              <mat-label>*Store</mat-label>
+              <mat-select>
+                <mat-option value="option">Username</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>*Store role</mat-label>
+              <mat-select>
+                <mat-option value="option">permission role</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="footer">
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="alert alert-success" *ngIf="messageSuccessp">
+      {{ messageSuccessp }}
+    </div>
+  </div>
+</div>

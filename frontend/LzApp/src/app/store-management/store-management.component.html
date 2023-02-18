@@ -1,0 +1,212 @@
+<div class="container">
+  <nav class="navbar">
+    <form class="d-flex" role="search">
+      <div class="dropdown">
+        <button
+          class="btn dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          All stores
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Opened stores</a></li>
+          <li><a class="dropdown-item" href="#">Closed stores</a></li>
+        </ul>
+      </div>
+
+      <div class="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search store"
+          aria-label="Search"
+        />
+      </div>
+    </form>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Add
+    </button>
+  </nav>
+
+  <div class="cardBx">
+    <div class="card" *ngFor="let item of dataArray">
+      >
+      <img
+        src="https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <table>
+          <ul>
+            <li>
+              <span class="name">Name :{{ item.storeName }}</span
+              ><mat-slide-toggle color="primary"></mat-slide-toggle>
+            </li>
+
+            <li>
+              <span>Number :{{ item.store_no }} </span
+              ><span
+                (click)="
+                  getst(
+                    item.store_no,
+                    item.storeName,
+                    item.storeAddress,
+                    item.id
+                  )
+                "
+                class="material-icons"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                >edit_note</span
+              >
+            </li>
+            <li>
+              <p>Address:{{ item.storeAddress }}</p>
+            </li>
+          </ul>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <span class="name">Name: </span
+        ><mat-slide-toggle color="primary"></mat-slide-toggle>
+        <p>Number :</p>
+        <span
+          class="material-icons"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          >edit_note</span
+        >
+        <p>Address :</p>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <span class="name">Name: </span
+        ><mat-slide-toggle color="primary"></mat-slide-toggle>
+        <p>Number :</p>
+        <span class="material-icons">edit_note</span>
+        <p>Address :</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <span class="name">Name: </span
+        ><mat-slide-toggle color="primary"></mat-slide-toggle>
+        <p>Number :</p>
+        <span class="material-icons">edit_note</span>
+        <p>Address :</p>
+      </div>
+    </div>
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+<mat-paginator
+  [length]="100"
+  [pageSize]="4"
+  [pageIndex]="1"
+  aria-label="Select page"
+>
+</mat-paginator>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit store</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="example-form" #f="ngForm" (ngSubmit)="editnewstore(f)">
+          <mat-form-field class="example-full-width">
+            <mat-label>*Store no</mat-label>
+            <input
+              type="number"
+              placeholder="store_no"
+              [(ngModel)]="dataT.store_no"
+              name="store_no"
+              #store_no="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>*Store name</mat-label>
+            <input
+              type="text"
+              placeholder="storeName"
+              [(ngModel)]="dataT.storeName"
+              name="storeName"
+              #storeName="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>*Store address</mat-label>
+            <input
+              matInput
+              placeholder="storeAddress"
+              [(ngModel)]="dataT.storeAddress"
+              name="storeAddress"
+              #storeAddress="ngModel"
+              required
+              ngModel
+            /> </mat-form-field
+          ><br />
+
+          Store image <img src="#" alt="" />
+          <input type="file" />
+
+          <div class="footer">
+            <button mat-raised-button color="primary">update</button>
+
+            <div class="space"></div>
+            <br />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+      <div class="alert alert-success" *ngIf="messageSuccess">
+        {{ messageSuccess }}
+      </div>
+    </div>
+  </div>
+</div>

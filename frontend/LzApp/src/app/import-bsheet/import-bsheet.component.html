@@ -1,0 +1,20 @@
+<div class="head">
+    <h3>Import binding sheet</h3>
+    <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+</div>
+
+<form class="example-form">
+    <div class="firstLine">
+        *Upload file
+        <input type="file" (change)="getfile($event)">
+        <div class="space"></div>
+        <button mat-stroked-button color="primary" (click)="submitData()">Download file</button>
+    </div>
+
+    <div class="footer">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <div class="space"></div>
+        <button mat-raised-button color="primary">Confirm</button>
+    </div>
+
+</form>

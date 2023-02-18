@@ -1,0 +1,40 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    background-color:#cccccc;
+}
+h3{
+    font-weight: bolder;
+}
+.example-form {
+    padding-left: 10px;
+    margin-right: 20px;
+    overflow-x: hidden;
+}
+.example-full-width {
+    padding-left: 20px;
+}
+.firstLine{
+    background:#cccccc;
+    width: 90%;
+    height: 50px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    font-size: large;
+    padding: 15px;
+}
+.footer{
+    margin-top: 30px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+.space{
+    width: 80px;
+    height: auto;
+}
+p{
+    margin-left: 20px;
+}

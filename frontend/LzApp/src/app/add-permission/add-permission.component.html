@@ -1,0 +1,60 @@
+<div class="head">
+  <h3>Add</h3>
+  <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="addP(f)">
+  <div class="firstLine">Basic info</div>
+  <mat-form-field class="example-full-width">
+    <mat-label>*Username</mat-label>
+    <input
+      type="text"
+      id="username"
+      required
+      #username="ngModel"
+      name="username"
+      ngModel
+      matInput
+    />
+  </mat-form-field>
+
+  <div class="firstLine">Assign System Authority</div>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>*System role</mat-label>
+    <mat-select>
+      <mat-option value="option"></mat-option>
+      <mat-option value="option">Shop manager</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="firstLine">Assign Store Authority</div>
+  <div class="line">
+    <mat-form-field appearance="fill">
+      <mat-label>*Store</mat-label>
+      <mat-select>
+        <mat-option value="option"></mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>*Store role</mat-label>
+      <mat-select>
+        <mat-option
+          id="store_role"
+          required
+          #store_role="ngModel"
+          name="store_role"
+          ngModel
+          value="option"
+        ></mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="footer">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
+</form>

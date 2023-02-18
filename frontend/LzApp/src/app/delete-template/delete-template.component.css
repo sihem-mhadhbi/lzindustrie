@@ -1,0 +1,26 @@
+.head{
+    background-color: #cccccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 60px;
+}
+h2{
+    padding-top: 0;
+}
+mat-icon{
+    margin-right: 10px;
+}
+div{
+    text-align: center;
+}
+.footer{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.space{
+    width: 80px;
+    height: auto;
+}

@@ -1,0 +1,18 @@
+.container{
+    margin-left: 120px;
+}
+.example-full-width{
+    height: 60px;
+}
+.field{
+    margin-top: 5px;
+    margin-left: -15px;
+    height: 70px;
+}
+.butt{
+    margin-left: 80px;
+    background: #6699ff;
+}
+table{
+    margin-top: 50px;
+}

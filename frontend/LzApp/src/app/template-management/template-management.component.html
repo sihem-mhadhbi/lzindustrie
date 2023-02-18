@@ -1,0 +1,100 @@
+<div class="container">
+  <mat-toolbar>
+    <div style="padding-top: 10px">
+      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+        <mat-label>All tempates</mat-label>
+        <mat-select>
+          <mat-option value="one">Store tempates</mat-option>
+          <mat-option value="two">System tempates</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+        <mat-label>All sizes</mat-label>
+        <mat-select>
+          <mat-option value="one">Store tempates</mat-option>
+          <mat-option value="two">System tempates</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+        <mat-label>All colors</mat-label>
+        <mat-select>
+          <mat-option value="one">Store tempates</mat-option>
+          <mat-option value="two">System tempates</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="input-group">
+      <div class="form-outline">
+        <input
+          type="search"
+          id="form1"
+          class="form-control"
+          placeholder="Find the template name"
+        />
+      </div>
+      <button type="button" class="btn btn-primary" style="height: 37px">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="add()">
+        <mat-icon>add</mat-icon>
+        Add
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <section>
+    <mat-card class="example-card">
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+        style="padding: 10px"
+      />
+      <mat-card-content>
+        <p style="font-weight: bold">11 copy</p>
+        <small>4.2" (400*300, black and white, horizontal)</small>
+        <mat-icon (click)="copy()" style="float: right">file_copy</mat-icon>
+        <mat-icon (click)="supp()" style="float: right"
+          >delete_outline</mat-icon
+        >
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card" style="margin-left: 40px">
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+        style="padding: 10px"
+      />
+      <mat-card-content>
+        <p style="font-weight: bold">11 copy</p>
+        <small
+          >4.2" (400*300, black and white, horizontal)
+          <mat-icon style="float: right">file_copy</mat-icon>
+          <mat-icon style="float: right">delete_outline</mat-icon>
+        </small>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card" style="margin-left: 40px">
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+        style="padding: 10px"
+      />
+      <mat-card-content>
+        <p style="font-weight: bold">11 copy</p>
+        <small
+          >4.2" (400*300, black and white, horizontal)
+          <mat-icon style="float: right">file_copy</mat-icon>
+          <mat-icon style="float: right">delete_outline</mat-icon>
+        </small>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>

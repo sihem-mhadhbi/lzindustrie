@@ -1,0 +1,123 @@
+<div class="head">
+  <h3 mat-dialog-title>Add</h3>
+  <mat-icon mat-dialog-close style="padding: 10px 0">exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="add(f)">
+  <div>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Username</mat-label>
+      <input
+        type="text"
+        id="username"
+        required
+        #username="ngModel"
+        name="username"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        id="name"
+        required
+        #name="ngModel"
+        name="name"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>*Mobile phone</mat-label>
+      <input
+        type="text"
+        id="mobile_phone"
+        required
+        #mobile_phone="ngModel"
+        name="mobile_phone"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>*Email</mat-label>
+      <input
+        type="text"
+        id="Email"
+        required
+        #Email="ngModel"
+        name="Email"
+        ngModel
+        matInput
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Remarks</mat-label>
+      <textarea
+        id="remarks"
+        required
+        #remarks="ngModel"
+        name="remarks"
+        ngModel
+        matInput
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <h3>Set password</h3>
+
+  <label>Creat password automatically or not !</label>
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="1">Create password automatically</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      placeholder="Password"
+      id="password"
+      required
+      #password="ngModel"
+      name="password"
+      ngModel
+    />
+    <mat-icon matSuffix (click)="hide = !hide">{{
+      hide ? "visibility_off" : "visibility"
+    }}</mat-icon>
+    <mat-hint>Enter your password</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      placeholder="confirm_password"
+      id="confirm_password"
+      required
+      #confirm_password="ngModel"
+      name="confirm_password"
+      ngModel
+    />
+    <mat-icon matSuffix (click)="hide = !hide">{{
+      hide ? "visibility_off" : "visibility"
+    }}</mat-icon>
+    <mat-hint>Enter your password</mat-hint>
+  </mat-form-field>
+  <label style="margin-top: 20px">Reset password or not !</label>
+  <mat-radio-group class="example-radio-group" aria-label="Select an option">
+    <mat-radio-button value="1"
+      >Password should be reset when next login</mat-radio-button
+    >
+    <mat-radio-button value="2">No need reset</mat-radio-button>
+  </mat-radio-group>
+
+  <div class="footer" mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
+</form>

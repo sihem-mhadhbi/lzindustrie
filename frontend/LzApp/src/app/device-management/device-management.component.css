@@ -1,0 +1,38 @@
+.container{
+    margin-left: 120px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+mat-icon{
+    cursor: pointer;
+}
+mat-toolbar{
+    background-color: #f5f5f5;
+}
+mat-form-field{
+    height: 70px;
+    width: 150px;
+}
+.menu{
+    border-radius: 10px;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+p:hover{
+    color: #6699ff;
+}
+.search{
+    height: 60px;
+    margin-left: 10px;
+}
+.header{
+    padding-top: 60px;
+    margin-left: -10px;
+}
+.butt{
+    margin-left: 410px;
+    background-color: #f5f5f5;
+}
+table{
+    margin-top: 60px;
+}

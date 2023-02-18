@@ -1,0 +1,18 @@
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20;
+    margin-left: 120px;
+}
+.btt:hover{
+    text-decoration: none;
+    color: aliceblue;
+    background: #287bff;
+    border-radius: 20px;
+}
+.btt p:hover{
+    color: white;
+}

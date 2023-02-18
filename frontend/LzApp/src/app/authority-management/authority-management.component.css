@@ -1,0 +1,21 @@
+mat-tab-group{
+    margin-left: 140px;
+    margin-top: 50px;
+}
+table{
+    width: 100%;
+}
+td .mat-icon{
+    cursor: pointer;
+}
+mat-form-field{
+    height: 70px;
+    width: 150px;
+    font-size: small;
+    margin-top: 10px;
+}
+.example-full-width.search{
+    width: 150px;
+    height: 70px;
+    margin-left: -350px;
+}

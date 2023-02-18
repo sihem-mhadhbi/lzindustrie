@@ -1,0 +1,25 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background-color:#cccccc;
+}
+h3{
+    font-weight: bolder;
+}
+.firstLine{
+    background:#cccccc;
+    width: 90%;
+    height: 50px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    font-size: large;
+    padding: 15px;
+}
+button{
+    text-align: center;
+    margin-left: 200px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}

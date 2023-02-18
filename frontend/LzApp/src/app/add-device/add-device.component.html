@@ -1,0 +1,40 @@
+<div class="head">
+  <h3 mat-dialog-title>Add Label</h3>
+  <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="addD(f)">
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Mac Address</mat-label>
+      <input
+        type="text"
+        id="mac_address"
+        required
+        #mac_address="ngModel"
+        name="mac_address"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Secret key</mat-label>
+      <input
+        type="text"
+        id="secret_key"
+        required
+        #secret_key="ngModel"
+        name="secret_key"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <div class="footer" mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+.firstLine{
+    justify-content: space-between;
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.mat-icon{
+    cursor: pointer;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background-color:#cccccc;
+}
+h3{
+    font-weight: bold;
+}
+.footer{
+    margin-top: 30px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.space{
+    width: 80px;
+    height: auto;
+}
