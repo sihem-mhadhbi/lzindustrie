@@ -14,6 +14,7 @@
     <div class="buttons">
       <button
         mat-raised-button
+        class="radius"
         style="background: #00e64d"
         [matMenuTriggerFor]="menu"
       >
@@ -21,12 +22,12 @@
           <button mat-menu-item (click)="openDialogImp()">Import data</button>
           <button mat-menu-item (click)="reservation()">
             Reservation record
-          </button> </mat-menu
-        >Import
+          </button> </mat-menu>Import
         <mat-icon>cloud_upload</mat-icon>
       </button>
       <button
         mat-raised-button
+        class="radius"
         style="background: #6699ff"
         (click)="exportData()"
       >

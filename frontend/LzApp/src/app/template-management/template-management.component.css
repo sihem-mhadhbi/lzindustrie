@@ -4,6 +4,16 @@
   min-width: min-content;
   overflow: hidden;
 }
+.radius{
+  border-radius: 50px;
+  margin-left: 360px;
+}
+mat-form-field{
+  margin-left: 10px;
+  height: 75px;
+  width: 140px;
+  padding-top: 10px;
+}
 .form-outline {
   width: 140px;
 }

@@ -5,14 +5,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20;
-    margin-left: 120px;
+    margin-left: 110px;
 }
-.btt:hover{
-    text-decoration: none;
-    color: aliceblue;
-    background: #287bff;
-    border-radius: 20px;
+span{
+    cursor: pointer;
+    font-size: 1.75rem;
 }
-.btt p:hover{
-    color: white;
+ul li a span{
+    font-size: 1.75rem;
+    border-radius: 70px;
+    display: block;
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar">
     <form class="d-flex" role="search">
-      <div class="dropdown">
+      <div class="dropdown-center">
         <button
           class="btn dropdown-toggle"
           type="button"
@@ -16,16 +16,16 @@
         </ul>
       </div>
 
-      <div class="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search store"
-          aria-label="Search"
-        />
-      </div>
+      <mat-form-field class="example-full-width">
+        <span matPrefix></span>
+        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search">
+        <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+    </mat-form-field>
     </form>
-    <button mat-raised-button color="primary" (click)="openDialog()">
+    <button mat-raised-button
+      color="primary" 
+      (click)="openDialog()"
+      style="border-radius: 50px;">
       <mat-icon>add</mat-icon>
       Add
     </button>

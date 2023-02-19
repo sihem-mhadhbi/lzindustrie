@@ -10,29 +10,28 @@ mat-toolbar{
     background-color: #f5f5f5;
 }
 mat-form-field{
-    height: 70px;
-    width: 150px;
+    margin-right: 5px;
+    height: 65px;
+    width: 120px;
 }
-.menu{
-    border-radius: 10px;
-    max-width: fit-content;
-    max-height: fit-content;
-}
-p:hover{
-    color: #6699ff;
-}
-.search{
-    height: 60px;
-    margin-left: 10px;
+mat-form-field.search{
+    margin-top: 10px;
 }
 .header{
     padding-top: 60px;
-    margin-left: -10px;
+}
+button{
+    border-radius: 50px;
+    margin-right: 5px;
 }
 .butt{
-    margin-left: 410px;
+    margin-left: 380px;
     background-color: #f5f5f5;
 }
 table{
-    margin-top: 60px;
+    margin-top: 80px;
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 99%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
 }

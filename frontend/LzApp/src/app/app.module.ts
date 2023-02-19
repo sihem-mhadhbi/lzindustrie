@@ -4,8 +4,6 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { TopbarComponent } from './topbar/topbar.component';
 import { StoreManagementComponent } from './store-management/store-management.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -75,8 +73,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    TopbarComponent,
     StoreManagementComponent,
     AddStoreComponent,
     UpdateStoreComponent,

@@ -1,17 +1,22 @@
 nav{
     position: relative;
-    margin-left: 120px;
+    margin-left: 150px;
     padding-top: 50px;
 }
-.btn.btn-primary{
-    width: 60px;
-    height: 40px;
-    text-align: center;
+form{
+    margin-bottom: -20px;
 }
-.btn.btn-primary span{
-    position:fixed;
-    margin-left: -20px;
-    padding-left: 2px;
+mat-form-field{
+    height: 60px;
+    width: 130px;
+    font-size: small;
+    padding-left: 5px;
+}
+.dropdown-toggle{
+    border-radius: 30px;
+    background: #625ad8;
+    height: 40px;
+    color: aliceblue;
 }
 .cardBx{
     position: relative;
@@ -27,6 +32,8 @@ nav{
 .card:hover{
     width: 250px;
     border-color: blue;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
+    transition: 0.5s;
 }
 .name{
     font-weight: bold;
