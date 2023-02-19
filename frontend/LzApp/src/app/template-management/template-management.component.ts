@@ -12,16 +12,23 @@ import { StoreserviceService } from '../services/storeservice.service';
 })
 export class TemplateManagementComponent {
   search = '';
-  constructor(private store: StoreserviceService, public dialog: MatDialog) {}
+  dataArray: any;
+  constructor(private store: StoreserviceService, public dialog: MatDialog) {
+    this.store.getTemplate().subscribe((data) => {
+      this.dataArray = data;
+    });
+  }
+
   add() {
     this.dialog.open(AddtemplateComponent, {
       width: '500px',
       height: '90%',
     });
   }
-  deleteT(id: any) {
+  deleteT(id: any, i: number) {
     this.store.deleteTemplate(id).subscribe((response) => {
       console.log(response);
+      this.dataArray.splice(i, 1);
     });
   }
   supp() {

@@ -3,10 +3,18 @@
   <mat-icon mat-dialog-close>exit_to_app</mat-icon>
 </div>
 
-<form class="example-form" (ngSubmit)="onSubmit()">
+<form class="example-form" #f="ngForm" (ngSubmit)="addT(f)">
   <mat-form-field class="example-full-width" aria-required="true">
     <mat-label>*Template name</mat-label>
-    <input type="text" matInput />
+    <input
+      type="text"
+      id="templateName"
+      required
+      #templateName="ngModel"
+      name="templateName"
+      matInput
+      ngModel
+    />
   </mat-form-field>
   <mat-form-field appearance="fill" style="width: 350px">
     <mat-label>*Screen size</mat-label>

@@ -19,6 +19,9 @@ export class StoreserviceService {
   getDevices() {
     return this.http.get('http://localhost:5000/api/gettag');
   }
+  getTemplate() {
+    return this.http.get('http://localhost:5000/gettemplate');
+  }
   addnewStore(profil: any) {
     return this.http.post('http://localhost:5000/addstore', profil);
   }
@@ -133,5 +136,14 @@ export class StoreserviceService {
   }
   updateData(id: any, newData: any) {
     return this.http.put('http://localhost:5000/updateproduct/' + id, newData);
+  }
+  getOneDevice(id: any) {
+    return this.http.get('http://localhost:5000/api/gettag1/' + id);
+  }
+  updatedevice(id: any, newDevice: any) {
+    return this.http.put(
+      'http://localhost:5000/api/updatetag/' + id,
+      newDevice
+    );
   }
 }

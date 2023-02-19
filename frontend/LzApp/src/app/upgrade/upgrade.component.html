@@ -1,26 +1,26 @@
 <div class="head">
-    <h3 mat-dialog-title>Upgrade</h3>
-    <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+  <h3 mat-dialog-title>Upgrade</h3>
+  <mat-icon mat-dialog-close>exit_to_app</mat-icon>
 </div>
 
 <form class="example-form">
-    <div mat-dialog-content>
-        <mat-form-field class="example-full-width" aria-required="true">
-            <mat-label>Mac Address</mat-label>
-            <input type="text" matInput disabled />{{macAddress}}
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Please select a version</mat-label>
-            <mat-select required>
-                <mat-option value="one">1</mat-option>
-                <mat-option value="two">2</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    
-    <div class="footer" mat-dialog-actions>
-        <button mat-raised-button mat-dialog-close>Cancel</button>
-        <div class="space"></div>
-        <button mat-raised-button color="primary">Confirm</button>
-    </div>
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Mac Address</mat-label>
+      <input type="text" matInput disabled />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Please select a version</mat-label>
+      <mat-select required>
+        <mat-option value="one">1</mat-option>
+        <mat-option value="two">2</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="footer" mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary">Confirm</button>
+  </div>
 </form>

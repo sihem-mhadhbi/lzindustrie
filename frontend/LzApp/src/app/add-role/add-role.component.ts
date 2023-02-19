@@ -16,4 +16,7 @@ export class AddRoleComponent {
       this.route.navigate(['/AuthorityManagement']);
     });
   }
+  onItemChange(value) {
+    console.log(' Value is : ', value);
+  }
 }

@@ -12,6 +12,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { EditRoleComponent } from './edit-role/edit-role.component';
 import { AddDataComponent } from './add-data/add-data.component';
 import { AddRoleComponent } from './add-role/add-role.component';
+import { DeviceInfoComponent } from './device-info/device-info.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'editrole/:id', component: EditRoleComponent },
   { path: 'addData', component: AddDataComponent },
   { path: 'addRole', component: AddRoleComponent },
+  { path: 'deviceinfo/:id', component: DeviceInfoComponent },
 ];
 
 @NgModule({

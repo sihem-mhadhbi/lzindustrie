@@ -167,80 +167,10 @@
         <td>{{ item.remark }}</td>
 
         <td>
-          <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal"
-            >edit</mat-icon
-          >
-          <mat-icon (click)="deleteDa(item.product_id, i)"
-            >delete_outline</mat-icon
-          >
+          <mat-icon (click)="details(item.id)">edit</mat-icon>
+          <mat-icon (click)="deleteDa(item.id, i)">delete_outline</mat-icon>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div class="head">
-          <h3>Device info</h3>
-          <mat-icon mat-dialog-close>exit_to_app</mat-icon>
-        </div>
-        <div style="margin-top: 10px">
-          <ul>
-            <li>Manufacturer</li>
-            <li>Minew</li>
-          </ul>
-          <ul>
-            <li>Battery</li>
-            <li>100%</li>
-          </ul>
-          <ul>
-            <li>Temperature</li>
-            <li>25°C</li>
-          </ul>
-          <ul>
-            <li>Running time</li>
-            <li>3day 17hours 54minute</li>
-          </ul>
-          <ul>
-            <li>Calibration range</li>
-            <li>-59</li>
-          </ul>
-          <ul>
-            <li>Firmware version</li>
-            <li>v3.1.16</li>
-          </ul>
-          <ul>
-            <li>Screen info</li>
-            <li>4.2"(400*300) white/black/red</li>
-          </ul>
-          <button mat-raised-button color="primary">Upgrade</button>
-          <div class="firstLine">Review</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>

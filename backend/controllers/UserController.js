@@ -522,12 +522,13 @@ exports.getProducts1 = (req, res) => {
 
 // add products
 exports.addProducts = (req, res) => {
-  const { name, price_per_unit, SN, number, status, barcode, id } = req.body;
+  const { name, price_per_unit, SN, number, status, barcode, product_id } =
+    req.body;
   const sqlGet =
-    "INSERT INTO store_db.products(name,price_per_unit,SN,number,status,barcode,id) VALUES (?,?,?,?,?,?,?);";
+    "INSERT INTO store_db.products(name,price_per_unit,SN,number,status,barcode,product_id) VALUES (?,?,?,?,?,?,?);";
   db.query(
     sqlGet,
-    [name, price_per_unit, SN, number, status, barcode, id],
+    [name, price_per_unit, SN, number, status, barcode, product_id],
     (error, result) => {
       res.send(result);
     }
@@ -565,7 +566,7 @@ exports.updateProducts = (req, res) => {
 // delete product
 exports.deleteProducts = (req, res) => {
   const { id } = req.params;
-  const sqlremove = "DELETE FROM store_db.products WHERE id = ?;";
+  const sqlremove = "DELETE FROM store_db.products WHERE product_id = ?;";
   db.query(sqlremove, id, (error, result) => {
     res.send(result);
   });

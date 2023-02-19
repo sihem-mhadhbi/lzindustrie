@@ -145,6 +145,8 @@ export class SystemDataComponent {
       this.data2.splice(i, 1);
     });
   }
+
+  $;
   addData() {
     this.dialog.open(AddDataComponent, {
       width: '500px',
