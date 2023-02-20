@@ -931,7 +931,7 @@ exports.updateTag = (req, res) => {
     remark,
   } = req.body;
   const sqlUpdate =
-    "UPDATE store_db.tag_management SET sn=?,mac_address=?,size=?,RSSI=?,battery_level=?,online_status=?, remark=?, secret_key=? WHERE id=? ";
+    "UPDATE store_db.tag_management SET sn=?,mac_address=?,size=?,RSSI=?,battery_level=?,online_status=?, remark=?, secret_key=? WHERE product_id=? ";
   db.query(
     sqlUpdate,
     [
