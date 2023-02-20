@@ -24,6 +24,7 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
     store_no: 0,
     storeName: '',
     storeAddress: '',
+    storeImage: '',
     id: '',
   };
   messageSuccess = '';
@@ -53,6 +54,7 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
     this.dataT.store_no = store_no;
     this.dataT.storeName = storeName;
     this.dataT.storeAddress = storeAddress;
+
     this.dataT.id = id;
 
     console.log(this.dataT);

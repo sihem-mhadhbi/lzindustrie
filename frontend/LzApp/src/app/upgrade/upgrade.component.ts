@@ -10,6 +10,12 @@ import { StoreManagementComponent } from '../store-management/store-management.c
 })
 export class UpgradeComponent {
   data2: any;
+  dataT = {
+    sn: 0,
+    mac_address: '',
+    id: 0,
+  };
+  messageSuccess = '';
 
   constructor(private store: StoreserviceService) {
     this.store.getDevices().subscribe((data) => {

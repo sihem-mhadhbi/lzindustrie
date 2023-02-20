@@ -14,10 +14,6 @@ export class DeviceInfoComponent {
   id = '';
   dataobject: any;
 
-  dataT = {
-    mac_address: '',
-    product_id: 0,
-  };
   messageSuccess = '';
 
   messageErreur = '';
@@ -38,28 +34,5 @@ export class DeviceInfoComponent {
       width: '500px',
       height: '60%',
     });
-  }
-  getde(mac_address: string, product_id: any) {
-    this.dataT.mac_address = mac_address;
-    this.dataT.product_id = product_id;
-    console.log(this.dataT);
-    this.messageSuccess = '';
-  }
-  editnewdevice(f: any) {
-    let datadevice = f.value;
-    this.store.updateDevice(this.dataT.product_id, datadevice).subscribe(
-      (response) => {
-        console.log(response);
-        let indexId = this.dataobject.findIndex(
-          (obj: any) => obj.product_id == this.dataT.product_id
-        );
-        this.dataobject[indexId].mac_address = datadevice.mac_address;
-
-        this.messageSuccess = `this permission ${this.dataobject[indexId].product_id} is updated`;
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err.message);
-      }
-    );
   }
 }

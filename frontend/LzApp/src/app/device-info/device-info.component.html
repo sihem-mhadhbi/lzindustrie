@@ -34,7 +34,6 @@
     color="primary"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
-    (onclick)="getde(item.mac_address, item.product_id)"
   >
     Upgrade
   </button>
@@ -50,7 +49,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Upgrade Device</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button
           type="button"
           class="btn-close"
@@ -58,54 +57,13 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">
-        <form class="example-form" #f="ngForm" (ngSubmit)="editnewdevice(f)">
-          <div mat-dialog-content>
-            <mat-form-field class="example-full-width" aria-required="true">
-              <mat-label>Mac Address</mat-label>
-              <input
-                type="text"
-                placeholder="mac_address"
-                [(ngModel)]="dataT.mac_address"
-                name="mac_address"
-                #mac_address="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-            <mat-form-field class="example-full-width" aria-required="true">
-              <mat-label>id</mat-label>
-              <input
-                type="number"
-                placeholder="product_id"
-                [(ngModel)]="dataT.product_id"
-                name="product_id"
-                #product_id="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>Please select a version</mat-label>
-              <mat-select required>
-                <mat-option value="one">1</mat-option>
-                <mat-option value="two">2</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="footer" mat-dialog-actions>
-            <div class="space"></div>
-            <button mat-raised-button color="primary">Upgrage</button>
-          </div>
-        </form>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-      <div class="modal-footer"></div>
-    </div>
-    <div class="alert alert-success" *ngIf="messageSuccess">
-      {{ messageSuccess }}
     </div>
   </div>
 </div>

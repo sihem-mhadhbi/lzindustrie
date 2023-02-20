@@ -22,6 +22,9 @@ export class StoreserviceService {
   getTemplate() {
     return this.http.get('http://localhost:5000/gettemplate');
   }
+  getOneTemplate(id: any) {
+    return this.http.get('http://localhost:5000/gettemplate/' + id);
+  }
   addnewStore(profil: any) {
     return this.http.post('http://localhost:5000/addstore', profil);
   }
