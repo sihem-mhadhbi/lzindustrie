@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -17,6 +18,8 @@ import { StoreserviceService } from '../services/storeservice.service';
 export class DeviceManagementComponent {
   search = '';
   data2: any;
+  messageSuccess = '';
+
   constructor(
     private store: StoreserviceService,
     private dialog: MatDialog,
@@ -32,6 +35,7 @@ export class DeviceManagementComponent {
       height: '60%',
     });
   }
+
   batchImport() {
     this.dialog.open(ImportBatchComponent, {
       width: '500px',
@@ -44,6 +48,9 @@ export class DeviceManagementComponent {
       height: '90%',
       position: { top: '50px', right: '10px' },
     });
+  }
+  details(id: any) {
+    this.route.navigate(['/deviceinfo/' + id]);
   }
   batchBinding() {
     this.dialog.open(ImportBatchComponent, {

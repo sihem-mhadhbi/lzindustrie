@@ -47,7 +47,7 @@ router.get("/getstore1/:id", UserController.getStore1);
 router.put("/updatestore/:id", UserController.updateStore);
 router.delete("/deletestore/:id", UserController.deleteStore);
 
-router.get("/gettemplate", protecttemplate, UserController.getTemplate);
+router.get("/gettemplate", UserController.getTemplate);
 router.get("/gettemplate/:id", UserController.getTemplate1);
 router.post("/addtemplate", UserController.addTemplate);
 router.put("/updatetemplate/:id", UserController.updateTemplate);

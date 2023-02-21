@@ -15,7 +15,8 @@ mat-form-field{
     width: 120px;
 }
 mat-form-field.search{
-    margin-top: 10px;
+    height: 57px;
+    margin-top: -10px;
 }
 .header{
     padding-top: 60px;

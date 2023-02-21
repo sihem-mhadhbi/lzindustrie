@@ -39,7 +39,7 @@
   </mat-toolbar>
 
   <section>
-    <mat-card class="example-card">
+    <mat-card class="example-card" *ngFor="let item of dataArray; index as i">
       <img
         mat-card-image
         src="https://material.angular.io/assets/img/examples/shiba2.jpg"
@@ -47,46 +47,99 @@
         style="padding: 10px"
       />
       <mat-card-content>
-        <p style="font-weight: bold">11 copy</p>
-        <small>4.2" (400*300, black and white, horizontal)</small>
-        <mat-icon (click)="copy()" style="float: right">file_copy</mat-icon>
-        <mat-icon (click)="supp()" style="float: right"
+        <p style="font-weight: bold">{{ item.templateName }}</p>
+        <small>{{ item.screenSize }}</small>
+        <mat-icon
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          style="float: right"
+          (click)="getCopy(item.templateName, item.screenSize, item.id)"
+          >file_copy</mat-icon
+        >
+        <mat-icon (click)="deleteT(item.id, i)" style="float: right"
           >delete_outline</mat-icon
         >
       </mat-card-content>
     </mat-card>
-    <mat-card class="example-card" style="margin-left: 40px">
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-        style="padding: 10px"
-      />
-      <mat-card-content>
-        <p style="font-weight: bold">11 copy</p>
-        <small
-          >4.2" (400*300, black and white, horizontal)
-          <mat-icon style="float: right">file_copy</mat-icon>
-          <mat-icon style="float: right">delete_outline</mat-icon>
-        </small>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="example-card" style="margin-left: 40px">
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-        style="padding: 10px"
-      />
-      <mat-card-content>
-        <p style="font-weight: bold">11 copy</p>
-        <small
-          >4.2" (400*300, black and white, horizontal)
-          <mat-icon style="float: right">file_copy</mat-icon>
-          <mat-icon style="float: right">delete_outline</mat-icon>
-        </small>
-      </mat-card-content>
-    </mat-card>
   </section>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Copy template</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="example-form">
+          <mat-form-field class="example-full-width" aria-required="true">
+            <mat-label>*Template name</mat-label>
+            <input
+              type="text"
+              placeholder="templateName"
+              [(ngModel)]="dattemplate.templateName"
+              name="templateName"
+              #templateName="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 350px">
+            <mat-label>*Display size</mat-label>
+            <mat-select>
+              <mat-option value="option">4.2" (400*300)</mat-option>
+            </mat-select>
+            <mat-hint align="end"></mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 350px">
+            <mat-label>*Optional color</mat-label>
+            <mat-select>
+              <mat-option value="option">Black and white</mat-option>
+            </mat-select>
+            <mat-hint align="end"
+              >Other colors will be available soon...</mat-hint
+            >
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 350px">
+            <mat-label>*Screen orientation</mat-label>
+            <mat-select>
+              <mat-option value="option">Horizontal</mat-option>
+            </mat-select>
+            <mat-hint align="end"
+              >Other orientation will be available soon...</mat-hint
+            >
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="width: 350px">
+            <mat-label>*ESL Direction</mat-label>
+            <mat-select>
+              <mat-option value="option">Positive</mat-option>
+              <mat-option value="option">Positive</mat-option>
+            </mat-select>
+            <mat-hint align="end"
+              >Other orientation will be available soon...</mat-hint
+            >
+          </mat-form-field>
+
+          <div class="footer">
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Copy</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
 </div>

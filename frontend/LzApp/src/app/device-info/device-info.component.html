@@ -1,39 +1,69 @@
-<div class="head">
-    <h3>Device info</h3>
-    <mat-icon mat-dialog-close>exit_to_app</mat-icon>
+<div style="margin-top: 10px" *ngFor="let item of dataobject">
+  <ul>
+    <li>S/N</li>
+    <li>{{ item.sn }}</li>
+  </ul>
+  <ul>
+    <li>Mac_address</li>
+
+    <li>{{ item.mac_address }}</li>
+  </ul>
+  <ul>
+    <li>battery_level</li>
+
+    <li>{{ item.battery_level }}</li>
+  </ul>
+
+  <ul>
+    <li>RSSI</li>
+
+    <li>{{ item.RSSI }}</li>
+  </ul>
+  <ul>
+    <li>remark</li>
+
+    <li>{{ item.remark }}</li>
+  </ul>
+  <ul>
+    <li>Online status</li>
+
+    <li>{{ item.online_status }}</li>
+  </ul>
+  <button
+    mat-raised-button
+    color="primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Upgrade
+  </button>
+  <div class="firstLine">Review</div>
 </div>
-<div style="margin-top: 10px;">
-    <ul>
-        <li>Manufacturer</li>
-        <li>Minew</li>
-    </ul>
-    <ul>
-        <li>Battery</li>
-        <li>100%</li>
-    </ul>
-    <ul>
-        <li>Temperature</li>
-        <li>25°C</li>
-    </ul>
-    <ul>
-        <li>Running time</li>
-        <li>3day 17hours 54minute</li>
-    </ul>
-    <ul>
-        <li>Calibration range</li>
-        <li>-59</li>
-    </ul>
-    <ul>
-        <li>Firmware version</li>
-        <li>v3.1.16</li>
-    </ul>
-    <ul>
-        <li>Screen info</li>
-        <li>4.2"(400*300) white/black/red</li>
-    </ul>
-    <button mat-raised-button color="primary" (click)="upgrade()">Upgrade</button>
-    <div class="firstLine">
-        Review
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    
+  </div>
 </div>

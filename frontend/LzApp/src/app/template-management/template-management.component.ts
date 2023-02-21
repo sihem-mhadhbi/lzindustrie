@@ -12,16 +12,34 @@ import { StoreserviceService } from '../services/storeservice.service';
 })
 export class TemplateManagementComponent {
   search = '';
-  constructor(private store: StoreserviceService, public dialog: MatDialog) {}
+  dataArray: any;
+  dattemplate = {
+    templateName: '',
+    screenSize: '',
+    id: 0,
+  };
+  constructor(private store: StoreserviceService, public dialog: MatDialog) {
+    this.store.getTemplate().subscribe((data) => {
+      this.dataArray = data;
+    });
+  }
+
   add() {
     this.dialog.open(AddtemplateComponent, {
       width: '500px',
       height: '90%',
     });
   }
-  deleteT(id: any) {
+  getCopy(templateName: string, screenSize: string, id: any) {
+    this.dattemplate.templateName = templateName;
+    this.dattemplate.screenSize = screenSize;
+    this.dattemplate.id = id;
+    console.log(this.dattemplate);
+  }
+  deleteT(id: any, i: number) {
     this.store.deleteTemplate(id).subscribe((response) => {
       console.log(response);
+      this.dataArray.splice(i, 1);
     });
   }
   supp() {

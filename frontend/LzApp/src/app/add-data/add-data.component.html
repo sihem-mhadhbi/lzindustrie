@@ -4,96 +4,97 @@
 </div>
 
 <form class="example-form" #f="ngForm" (ngSubmit)="addD(f)">
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Id</mat-label>
-    <input
-      type="number"
-      id="id"
-      required
-      #id="ngModel"
-      name="id"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Name</mat-label>
-    <input
-      type="text"
-      id="name"
-      required
-      #name="ngModel"
-      name="name"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Barcode</mat-label>
-    <input
-      type="text"
-      id="barcode"
-      required
-      #barcode="ngModel"
-      name="barcode"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>SN</mat-label>
-    <input
-      type="text"
-      id="SN"
-      required
-      #SN="ngModel"
-      name="SN"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Price</mat-label>
-    <input
-      type="text"
-      id="price_per_unit"
-      required
-      #price_per_unit="ngModel"
-      name="price_per_unit"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Number</mat-label>
-    <input
-      type="number"
-      id="number"
-      required
-      #number="ngModel"
-      name="number"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" aria-required="true">
-    <mat-label>Status</mat-label>
-    <input
-      type="text"
-      id="status"
-      required
-      #status="ngModel"
-      name="status"
-      matInput
-      ngModel
-    />
-  </mat-form-field>
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>id</mat-label>
+      <input
+        type="text"
+        id="id"
+        required
+        #id="ngModel"
+        name="id"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        id="name"
+        required
+        #name="ngModel"
+        name="name"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>barcode</mat-label>
+      <input
+        type="text"
+        id="barcode"
+        required
+        #barcode="ngModel"
+        name="barcode"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        id="SN"
+        required
+        #SN="ngModel"
+        name="SN"
+        ngModel
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Price</mat-label>
+      <input
+        type="text"
+        id="price_per_unit"
+        required
+        #price_per_unit="ngModel"
+        name="price_per_unit"
+        matInput
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Number</mat-label>
+      <input
+        type="number"
+        id="number"
+        required
+        #number="ngModel"
+        name="number"
+        matInput
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" aria-required="true">
+      <mat-label>Status</mat-label>
+      <input
+        type="text"
+        id="status"
+        required
+        #status="ngModel"
+        name="status"
+        matInput
+        ngModel
+      />
+    </mat-form-field>
+  </div>
+  <div class="footer" mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <div class="space"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">
+      Confirm
+    </button>
+  </div>
 </form>
-
-<div class="footer" mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <div class="space"></div>
-  <button mat-raised-button color="primary" [disabled]="f.invalid">
-    Confirm
-  </button>
-</div>
