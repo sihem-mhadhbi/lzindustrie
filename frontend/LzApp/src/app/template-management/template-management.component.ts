@@ -12,10 +12,12 @@ import { StoreserviceService } from '../services/storeservice.service';
 })
 export class TemplateManagementComponent {
   search = '';
+  isChecked = true;
   dataArray: any;
   dattemplate = {
     templateName: '',
     screenSize: '',
+    selectableColor: 0,
     id: 0,
   };
   constructor(private store: StoreserviceService, public dialog: MatDialog) {
@@ -30,7 +32,7 @@ export class TemplateManagementComponent {
       height: '90%',
     });
   }
-  getCopy(templateName: string, screenSize: string, id: any) {
+  getCopy(templateName: string, screenSize: any, id: any) {
     this.dattemplate.templateName = templateName;
     this.dattemplate.screenSize = screenSize;
     this.dattemplate.id = id;

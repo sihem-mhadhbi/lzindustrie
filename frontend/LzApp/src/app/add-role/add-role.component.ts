@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-role.component.css'],
 })
 export class AddRoleComponent {
+  isChecked = true;
+
   constructor(private store: StoreserviceService, private route: Router) {}
   addR(f: any) {
     let data = f.value;

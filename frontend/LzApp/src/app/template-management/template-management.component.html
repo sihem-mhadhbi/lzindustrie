@@ -132,9 +132,29 @@
           </mat-form-field>
           <mat-form-field appearance="fill" style="width: 350px">
             <mat-label>*ESL Direction</mat-label>
+
+            <
             <mat-select>
-              <mat-option value="option">Positive</mat-option>
-              <mat-option value="option">Positive</mat-option>
+              <label>
+                <input
+                  [value]="1"
+                  [(ngModel)]="dattemplate.selectableColor"
+                  name="selectableColor"
+                  type="radio"
+                  [checked]="isChecked"
+                />
+              </label>
+              <label>
+                <input
+                  [value]="2"
+                  [(ngModel)]="dattemplate.selectableColor"
+                  name="selectableColor"
+                  type="radio"
+                  [checked]="!isChecked"
+                />
+              </label>
+              <div *ngIf="dattemplate.selectableColor == 1">blue</div>
+              <div *ngIf="dattemplate.selectableColor == 2">green</div>
             </mat-select>
             <mat-hint align="end"
               >Other orientation will be available soon...</mat-hint
