@@ -1,21 +1,21 @@
 <div class="container">
   <mat-toolbar>
-    <div style="padding-top: 10px">
-      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+    <div>
+      <mat-form-field appearance="fill">
         <mat-label>All tempates</mat-label>
         <mat-select>
           <mat-option value="one">Store tempates</mat-option>
           <mat-option value="two">System tempates</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+      <mat-form-field appearance="fill">
         <mat-label>All sizes</mat-label>
         <mat-select>
           <mat-option value="one">Store tempates</mat-option>
           <mat-option value="two">System tempates</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill" style="height: 70px; width: 160px">
+      <mat-form-field appearance="fill">
         <mat-label>All colors</mat-label>
         <mat-select>
           <mat-option value="one">Store tempates</mat-option>
@@ -24,22 +24,14 @@
       </mat-form-field>
     </div>
 
-    <div class="input-group">
-      <div class="form-outline">
-        <input
-          type="search"
-          id="form1"
-          class="form-control"
-          placeholder="Find the template name"
-        />
-      </div>
-      <button type="button" class="btn btn-primary" style="height: 37px">
-        <mat-icon>search</mat-icon>
-      </button>
-    </div>
+    <mat-form-field class="example-full-width">
+      <span matPrefix></span>
+      <input type="tel" matInput placeholder="Search" name="search" [(ngModel)]="search">
+      <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+    </mat-form-field>
 
     <div>
-      <button mat-raised-button color="primary" (click)="add()">
+      <button mat-raised-button class="radius" color="primary" (click)="add()">
         <mat-icon>add</mat-icon>
         Add
       </button>

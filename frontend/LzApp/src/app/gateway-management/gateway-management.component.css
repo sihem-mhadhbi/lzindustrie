@@ -8,6 +8,17 @@ mat-toolbar{
     margin-left: 480px;
     max-width: fit-content;
 }
+button{
+    border-radius: 50px;
+    margin-right: 2px;
+}
+table{
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 99%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
+}
 mat-icon{
     cursor: pointer;
 }

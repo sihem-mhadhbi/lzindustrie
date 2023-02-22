@@ -1,9 +1,22 @@
 mat-tab-group{
+    width: 97%;
     margin-left: 140px;
     margin-top: 50px;
 }
+.buttons{
+    margin-top: 30px;
+    margin-right: 30px;
+}
+button{
+    border-radius: 50px;
+    margin-right: 5px;
+}
 table{
-    width: 100%;
+    width: 96%;
+    margin-top: 60px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
 }
 td .mat-icon{
     cursor: pointer;
@@ -13,9 +26,10 @@ mat-form-field{
     width: 150px;
     font-size: small;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .example-full-width.search{
     width: 150px;
     height: 70px;
-    margin-left: -350px;
+    margin-left: -380px;
 }

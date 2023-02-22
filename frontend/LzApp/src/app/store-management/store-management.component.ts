@@ -86,4 +86,5 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
       height: '90%',
     });
   }
+  search = ""
 }
