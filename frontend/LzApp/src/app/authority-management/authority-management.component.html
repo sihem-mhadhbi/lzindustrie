@@ -315,12 +315,27 @@
               />
             </mat-form-field>
           </div>
+          <label>
+            <input
+              [value]="1"
+              [(ngModel)]="dataT.roleType"
+              name="roleType"
+              type="radio"
+              [checked]="isChecked"
+            />
+          </label>
+          <label>
+            <input
+              [value]="2"
+              [(ngModel)]="dataT.roleType"
+              name="roleType"
+              type="radio"
+              [checked]="!isChecked"
+            />
+          </label>
 
-          <mat-radio-group aria-label="Select an option"
-            >Role type
-            <mat-radio-button value="1">System role</mat-radio-button>
-            <mat-radio-button value="2">Store role</mat-radio-button>
-          </mat-radio-group>
+          <div *ngIf="dataT.roleType == 1">systemrole</div>
+          <div *ngIf="dataT.roleType == 2">storerole</div>
 
           <section style="padding-top: 10px">
             Role Permission <br />
@@ -435,8 +450,27 @@
             </mat-form-field>
             <mat-radio-group aria-label="Select an option">
               <label>Status</label>
-              <mat-radio-button value="1">Normal</mat-radio-button>
-              <mat-radio-button value="2">Disable</mat-radio-button>
+              <label>
+                <input
+                  [value]="1"
+                  [(ngModel)]="dataF.status"
+                  name="status"
+                  type="radio"
+                  [checked]="isChecked"
+                />
+              </label>
+              <label>
+                <input
+                  [value]="2"
+                  [(ngModel)]="dataF.status"
+                  name="status"
+                  type="radio"
+                  [checked]="!isChecked"
+                />
+              </label>
+
+              <div *ngIf="dataF.status == 1">Normal</div>
+              <div *ngIf="dataF.status == 2">Disable</div>
             </mat-radio-group>
             <mat-form-field class="example-full-width" aria-required="true">
               <mat-label>Remarks</mat-label>

@@ -26,13 +26,15 @@ export class AuthorityManagementComponent {
   messageSuccess = '';
   messageSuccesss = '';
   messageSuccessp = '';
+  isChecked = true;
+
   dataArray1: any;
   dataArray2: any;
   dataArray3: any;
   dataT = {
     roleName: '',
     roleDescription: '',
-    roleType: '',
+    roleType: 0,
     role_id: '',
   };
   dataF = {
@@ -41,7 +43,7 @@ export class AuthorityManagementComponent {
     mobile_phone: '',
     Email: '',
     remarks: '',
-    status: '',
+    status: 0,
     staff_id: '',
   };
   dataP = {
@@ -82,7 +84,7 @@ export class AuthorityManagementComponent {
         this.dataArray2[indexId].roleName = data.roleName;
         this.dataArray2[indexId].roleDescription = data.roleDescription;
         this.dataArray2[indexId].roleType = data.roleType;
-        this.messageSuccess = `this role ${this.dataArray2[indexId].roleName} is updated`;
+        this.messageSuccess = `this role ${this.dataArray2[indexId].roleType} is updated`;
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
@@ -158,7 +160,7 @@ export class AuthorityManagementComponent {
   getro(
     roleName: string,
     roleDescription: string,
-    roleType: string,
+    roleType: any,
     role_id: any
   ) {
     this.messageSuccess = '';
@@ -174,7 +176,7 @@ export class AuthorityManagementComponent {
     mobile_phone: string,
     Email: string,
     remarks: string,
-    status: string,
+    status: any,
     staff_id: string
   ) {
     this.messageSuccesss = '';

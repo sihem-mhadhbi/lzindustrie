@@ -13,6 +13,11 @@ import { UpgradeComponent } from '../upgrade/upgrade.component';
 export class DeviceInfoComponent {
   id = '';
   dataobject: any;
+  isChecked = true;
+  datadevice = {
+    mac_address: '',
+    product_id: '',
+  };
 
   messageSuccess = '';
 
@@ -34,5 +39,27 @@ export class DeviceInfoComponent {
       width: '500px',
       height: '60%',
     });
+  }
+  detde(mac_address: string, product_id: any) {
+    this.datadevice.mac_address = mac_address;
+
+    this.datadevice.product_id = product_id;
+    console.log(this.datadevice);
+  }
+  updatenewdevice(f: any) {
+    let data = f.value;
+    this.store.updateDevice(this.datadevice.product_id, data).subscribe(
+      (response) => {
+        let indexId = this.dataobject.findIndex(
+          (obj: any) => obj.product_id == this.datadevice.product_id
+        );
+        this.dataobject[indexId].mac_address = data.mac_address;
+
+        this.messageSuccess = `this device ${this.dataobject[indexId].mac_address} is updated`;
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
   }
 }
