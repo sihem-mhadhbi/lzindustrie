@@ -1,8 +1,26 @@
 .container{
     margin-left: 120px;
+    margin-top: 40px;
+}
+mat-toolbar{
+    margin-top: 70px;
+}
+.matff{
+    height: 70px;
+    width: 150px;
+    font-size: small;
+    padding-left: 5px;
+    margin-top: 10px;
 }
 .example-full-width{
     height: 60px;
+    width: 150px;
+    font-size: small;
+    padding-left: 5px;
+}
+mat-label{
+    font-size: small;
+    height: 10%;
 }
 .field{
     margin-top: 5px;
@@ -10,9 +28,13 @@
     height: 70px;
 }
 .butt{
-    margin-left: 80px;
-    background: #6699ff;
+    margin-left: 370px;
+    border-radius: 50px;
 }
 table{
     margin-top: 50px;
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 99%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
 }

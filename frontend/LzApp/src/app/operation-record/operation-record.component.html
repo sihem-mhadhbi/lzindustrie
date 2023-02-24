@@ -1,21 +1,21 @@
 <div class="container">
   <mat-toolbar>
     <div class="field">
-      <mat-form-field appearance="fill">
-        <mat-label style="font-size: small; height: 10%">ESL</mat-label>
+      <mat-form-field appearance="fill" class="matff">
+        <mat-label>ESL</mat-label>
         <mat-select disabled>
           <mat-option value="one" disabled="yes">First option</mat-option>
           <mat-option value="two" disabled="yes">Second option</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="matff">
         <mat-label>All operation type</mat-label>
         <mat-select disabled>
           <mat-option value="one" disabled="yes">First option</mat-option>
           <mat-option value="two" disabled="yes">Second option</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="matff">
         <mat-label>All operation result</mat-label>
         <mat-select disabled>
           <mat-option value="one">First option</mat-option>
@@ -35,7 +35,7 @@
       </mat-form-field>
     </div>
 
-    <button mat-raised-button class="butt" (click)="export()">
+    <button mat-raised-button style="background: #6699ff;" class="butt" (click)="export()">
       Export
       <mat-icon>cloud_download</mat-icon>
     </button>
