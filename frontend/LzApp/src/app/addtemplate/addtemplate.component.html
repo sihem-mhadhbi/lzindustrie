@@ -43,4 +43,7 @@
     <div class="space"></div>
     <button mat-raised-button color="primary">Confirm</button>
   </div>
+  <div class="alert alert-success" *ngIf="messageSuccess">
+    {{ messageSuccess }}
+  </div>
 </form>

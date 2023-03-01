@@ -49,11 +49,18 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
       height: '75%',
     });
   }
-  getst(store_no: number, storeName: string, storeAddress: any, id: any) {
+  getst(
+    store_no: number,
+    storeName: string,
+    storeAddress: any,
+    id: any,
+    storeImage: any
+  ) {
     this.messageSuccess = '';
     this.dataT.store_no = store_no;
     this.dataT.storeName = storeName;
     this.dataT.storeAddress = storeAddress;
+    this.dataT.storeImage = storeImage;
 
     this.dataT.id = id;
 
@@ -70,8 +77,8 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
         this.dataArray[indexId].store_no = datastore.store_no;
 
         this.dataArray[indexId].storeName = datastore.storeName;
-        this.dataArray[indexId].storeName = datastore.storeName;
         this.dataArray[indexId].storeAddress = datastore.storeAddress;
+        this.dataArray[indexId].storeImage = datastore.storeImage;
 
         this.messageSuccess = `this permission ${this.dataArray[indexId].storeName} is updated`;
       },
@@ -86,5 +93,5 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
       height: '90%',
     });
   }
-  search = ""
+  search = '';
 }

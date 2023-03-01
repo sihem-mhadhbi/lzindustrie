@@ -67,8 +67,9 @@ exports.addadmin = (req, res) => {
 
 // login admin
 exports.loginadmin = (req, res) => {
+  const { username, password } = req.body;
+
   try {
-    const { username, password } = req.body;
     if (!username || !password) {
       return res
         .status(400)
@@ -88,11 +89,16 @@ exports.loginadmin = (req, res) => {
             return res.status(401).json({ msg: "Email Or Password Incorrect" });
           } else {
             const id = result[0].admin_id;
+            const username = result[0].username;
 
-            const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
-              expiresIn: process.env.JWT_EXPIRES_IN,
-            });
-            res.json({ result, token });
+            const token = jwt.sign(
+              { id: id, username: username, role: "admin" },
+              process.env.JWT_SECRET,
+              {
+                expiresIn: "1h",
+              }
+            );
+            res.json({ token, role: "admin", username });
           }
         }
       }
@@ -784,7 +790,8 @@ exports.deleteScenario = (req, res) => {
 
 //get all operation record
 exports.getrecord = (req, res) => {
-  const sqlGet = "SELECT * FROM store_db.operation_record;";
+  const sqlGet =
+    "SELECT * FROM store_db.products,store_db.store,store_db.templatestore;";
   db.query(sqlGet, (error, result) => {
     res.send(result);
   });
@@ -1025,12 +1032,24 @@ exports.uploadfile = async (req, res) => {
   }
 };
 
-// Tags bind with data/products
+// Tags bind with data/products with id
 exports.bind = async (req, res) => {
   const { id } = req.params;
   const sqlGet =
     "SELECT * FROM store_db.products INNER JOIN store_db.tag_management ON store_db.products.product_id=store_db.tag_management.product_id WHERE store_db.products.product_id=? ";
   db.query(sqlGet, id, (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(result);
+  });
+};
+// Tags bind with data/products
+
+exports.bind2 = async (req, res) => {
+  const sqlGet =
+    "SELECT * FROM store_db.products INNER JOIN store_db.tag_management ON store_db.products.product_id=store_db.tag_management.product_id  ";
+  db.query(sqlGet, (error, result) => {
     if (error) {
       console.log(error);
     }

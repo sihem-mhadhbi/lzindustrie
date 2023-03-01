@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-device.component.css'],
 })
 export class AddDeviceComponent {
+  messageSuccess: any;
   constructor(private store: StoreserviceService, private route: Router) {}
   addD(f: any) {
     let data = f.value;
     console.log(data);
     this.store.addDevice(data).subscribe((data) => {
       this.route.navigate(['/DeviceManagement']);
+      this.messageSuccess = `this device is added successfully`;
     });
   }
 }

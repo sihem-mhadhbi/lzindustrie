@@ -4,18 +4,25 @@ import { LoginPageComponent } from '../login-page/login-page.component';
 import { AuthentificationComponent } from './authentification.component';
 
 const routes: Routes = [
-  { path: '', component: AuthentificationComponent, children:[
-    {path:'login', component: LoginPageComponent},
-    {path:'', redirectTo:'login', pathMatch:'full'},
-    {
-      path: 'dashboard',
-      loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule)
-    }
-  ] }
+  {
+    path: '',
+    component: AuthentificationComponent,
+    children: [
+      { path: 'login', component: LoginPageComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('../dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AuthentificationRoutingModule { }
+export class AuthentificationRoutingModule {}

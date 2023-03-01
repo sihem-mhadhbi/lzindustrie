@@ -1,43 +1,46 @@
 <div class="container">
-    <div class="topbar">
+  <div class="topbar">
+    <span
+      class="material-icons"
+      style="margin-left: 30px"
+      (click)="toggleSidebar()"
+    >
+      reorder
+    </span>
 
-        <span class="material-icons" style="margin-left: 30px;" (click)="toggleSidebar()">
-            reorder
-        </span>
+    <span
+      class="material-icons dropdown-toggle"
+      style="margin-left: 960px"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      language
+    </span>
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" href="#">
+          <span class="flag-icon flag-icon-fr flag-icon-round"></span>
+          <p>Français</p>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="#">
+          <span class="flag-icon flag-icon-us flag-icon-squared"></span>Anglais
+        </a>
+      </li>
+    </ul>
 
-
-        <span class="material-icons dropdown-toggle" style="margin-left: 960px;" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            language
-        </span>
-        <ul class="dropdown-menu">
-            <li>
-                <a class="dropdown-item" href="#">
-                    <span class="flag-icon flag-icon-fr flag-icon-round"></span>
-                    <p>Français</p>
-
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="#">
-                    <span class="flag-icon flag-icon-us flag-icon-squared"></span>Anglais
-                </a>
-            </li>
-        </ul>
-
-
-        <span class="material-icons dropdown-toggle" data-bs-toggle="dropdown"
-        aria-expanded="false">
-            account_circle
-        </span>
-        <ul class="dropdown-menu">
-            <li>
-                <a class="dropdown-item" href="#">
-                    LogOut
-                </a>
-            </li>
-        </ul>
-
-
-    </div>
+    <span
+      class="material-icons dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      account_circle
+    </span>
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" (click)="logout()"> LogOut </a>
+      </li>
+    </ul>
+  </div>
 </div>

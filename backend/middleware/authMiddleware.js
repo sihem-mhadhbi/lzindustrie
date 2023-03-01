@@ -11,12 +11,10 @@ const db = mysql.createPool({
 });
 const protect = async (req, res, next) => {
   let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
+  if (req.headers.authorization && req.headers.role == "admin") {
     try {
       //get token from header
+
       token = req.headers.authorization.split(` `)[1];
 
       //verify token
@@ -31,7 +29,7 @@ const protect = async (req, res, next) => {
         function (error, results, fields) {
           if (error) throw error;
 
-          return res.send({
+          return res.json({
             error: false,
             data: results[0],
             message: "Fetch Successfully.",
@@ -42,9 +40,6 @@ const protect = async (req, res, next) => {
       console.log(err.message);
       res.status(401).json({ msg: "Not authorized" });
     }
-  }
-  if (!token) {
-    return res.status(401).json({ msg: "NO token, Authorization denied" });
   }
 };
 

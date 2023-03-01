@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-data.component.css'],
 })
 export class AddDataComponent {
+  messageSuccess: any;
   constructor(private store: StoreserviceService, private route: Router) {}
 
   addD(f: any) {
@@ -16,6 +17,7 @@ export class AddDataComponent {
     this.store.addNewData(data).subscribe(
       (response) => {
         console.log(response);
+        this.messageSuccess = `this data is added successfully`;
       },
       (err) => {
         console.log(err.error);

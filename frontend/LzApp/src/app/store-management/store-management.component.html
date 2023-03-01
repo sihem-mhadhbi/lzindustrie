@@ -22,14 +22,22 @@
 
       <mat-form-field class="example-full-width">
         <span matPrefix></span>
-        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search">
-        <button matSuffix mat-button><mat-icon >search</mat-icon></button>
-    </mat-form-field>
+        <input
+          type="tel"
+          matInput
+          placeholder="Search"
+          name="search"
+          [(ngModel)]="search"
+        />
+        <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+      </mat-form-field>
     </form>
-    <button mat-raised-button
-      color="primary" 
+    <button
+      mat-raised-button
+      color="primary"
       (click)="openDialog()"
-      style="border-radius: 50px;">
+      style="border-radius: 50px"
+    >
       <mat-icon>add</mat-icon>
       Add
     </button>
@@ -59,6 +67,7 @@
                     item.store_no,
                     item.storeName,
                     item.storeAddress,
+                    item.storeImage,
                     item.id
                   )
                 "
@@ -72,6 +81,7 @@
               <p>Address:{{ item.storeAddress }}</p>
             </li>
           </ul>
+          <img src="[(item.storeImage)]" />
         </table>
       </div>
     </div>
@@ -196,7 +206,7 @@
             /> </mat-form-field
           ><br />
 
-          Store image <img src="#" alt="" />
+          Store image <img src="[{dataT.storeImage}]" alt="" />
           <input type="file" />
 
           <div class="footer">
