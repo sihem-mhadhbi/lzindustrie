@@ -1,0 +1,23 @@
+.container{
+    margin-left: 120px;
+}
+.radius{
+    border-radius: 50px;
+    margin-right: 5px;
+}
+table{
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 99%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
+    border-radius: 50px;
+}
+td .mat-icon{
+    cursor: pointer;
+}
+mat-form-field{
+    margin-left: 10px;
+    height: 65px;
+    width: 130px;
+    font-size: small;
+}

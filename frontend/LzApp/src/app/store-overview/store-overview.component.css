@@ -1,0 +1,50 @@
+nav{
+    position: relative;
+    margin-left: 130px;
+    padding-top: 50px;
+}
+form{
+    margin-bottom: -20px;
+}
+mat-form-field{
+    height: 60px;
+    width: 130px;
+    font-size: small;
+    padding-left: 5px;
+}
+.dropdown-toggle{
+    border-radius: 30px;
+    background: #625ad8;
+    height: 40px;
+    color: aliceblue;
+}
+.cardBx{
+    position: relative;
+    width: 100%;
+    box-shadow: 20px darkgrey;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+    margin-left: 120px;
+    cursor: pointer;
+}
+.card:hover{
+    width: 250px;
+    border-color: blue;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 08);
+    transition: 0.5s;
+}
+.name{
+    font-weight: bold;
+}
+.cardBx .card .card-body .material-icons,
+.cardBx .card .card-body mat-slide-toggle{
+    position: relative;
+    cursor: pointer;
+    margin-left: 170px;
+}
+
+ul{
+    padding: 0 0 0 0;
+}

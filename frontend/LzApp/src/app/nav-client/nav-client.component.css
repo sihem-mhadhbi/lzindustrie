@@ -1,0 +1,77 @@
+.navigation{
+    background: #625ad8;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    transition: 0.5%;
+    overflow-y: hidden;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 5px;
+    margin-top: 100px;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+.nav-item:hover{
+    border-radius: 50px;
+    background: #554ebc;
+    box-shadow:  20px -20px 60px #4842a0,
+             -20px 20px 60px #625ad8;
+    top: 0;
+    left: 0;
+}
+.active{
+    border-radius: 50px;
+    box-shadow:  20px -20px 60px #4842a0,
+             -20px 20px 60px #625ad8;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    color: white;
+}
+
+.navigation ul li a mat-icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 1.75em;
+}
+.navbar-brand{
+    margin: 10px 40px 50px;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: x-large;
+    
+    color: beige;
+    border-radius: 50px;
+    -webkit-box-shadow:0px 0px 46px 23px rgba(202,212,222,0.76);
+    -moz-box-shadow: 0px 0px 46px 23px rgba(202,212,222,0.76);
+    box-shadow: 0px 0px 46px 23px rgba(202,212,222,0.76);
+}
+.navigation ul li a span{
+    padding: 0 10px;
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}

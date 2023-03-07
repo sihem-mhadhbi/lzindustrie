@@ -1,0 +1,41 @@
+.container {
+    margin-left: 130px;
+    background-color: #f5f5f5;
+    min-width: min-content;
+    overflow: hidden;
+  }
+  .radius{
+    border-radius: 50px;
+    margin-left: 360px;
+  }
+  mat-form-field{
+    margin-left: 10px;
+    height: 75px;
+    width: 140px;
+    padding-top: 10px;
+  }
+  .form-outline {
+    width: 140px;
+  }
+  .example-card {
+    width: 330px;
+  }
+  .example-card:hover {
+      width: 350px;
+      box-shadow: 10px grey;
+      transition: 0.7s;
+      overflow-x: hidden;
+      max-width: min-content;
+    }
+  
+  .example-header-image {
+    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+    background-size: cover;
+  }
+  section{
+      display: flex;
+  }
+  mat-icon{
+      cursor: pointer;
+  }
+  

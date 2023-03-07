@@ -69,6 +69,11 @@ import { ImportWarningComponent } from './import-warning/import-warning.componen
 import { ExportRecordComponent } from './export-record/export-record.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoredataClientComponent } from './storedata-client/storedata-client.component';
+import { TemplateClientComponent } from './template-client/template-client.component';
+import { GatewayClientComponent } from './gateway-client/gateway-client.component';
+import { DeviceClientComponent } from './device-client/device-client.component';
+
 
 @NgModule({
   declarations: [
@@ -117,6 +122,11 @@ import { HttpClientModule } from '@angular/common/http';
     ImportWarningComponent,
     ExportRecordComponent,
     LoginPageComponent,
+    StoredataClientComponent,
+    TemplateClientComponent,
+    GatewayClientComponent,
+    DeviceClientComponent,
+
   ],
   imports: [
     BrowserModule,

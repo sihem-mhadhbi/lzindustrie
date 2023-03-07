@@ -1,0 +1,177 @@
+<div class="container">
+    <mat-toolbar>
+      <nav>
+        <div class="header">
+          <mat-form-field appearance="fill">
+            <mat-label>ESL</mat-label>
+            <mat-select>
+              <mat-option value="one">ESL</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>All Devices</mat-label>
+            <mat-select>
+              <mat-option value="one">
+                <section>
+                  <b>Size</b>
+                  <mat-checkbox class="example-margin" [checked]="allComplete"
+                    >Select All</mat-checkbox
+                  >
+                  <mat-checkbox class="example-margin">1.54"</mat-checkbox>
+                  <mat-checkbox class="example-margin">2.13"</mat-checkbox>
+                  <mat-checkbox class="example-margin">2.66"</mat-checkbox>
+                  <mat-checkbox class="example-margin">2.9"</mat-checkbox>
+                  <mat-checkbox class="example-margin">4.2"</mat-checkbox>
+                  <mat-checkbox class="example-margin">5.83"</mat-checkbox>
+                  <mat-checkbox class="example-margin">7.5"</mat-checkbox>
+                  <mat-checkbox class="example-margin">11.5"</mat-checkbox>
+                </section>
+                <section>
+                  <b>Color</b>
+                  <mat-checkbox class="example-margin">Select all</mat-checkbox>
+                  <mat-checkbox class="example-margin"
+                    >White/Black/Red</mat-checkbox
+                  >
+                  <mat-checkbox class="example-margin" disabled
+                    >White/Black/White</mat-checkbox
+                  >
+                  <mat-checkbox class="example-margin">White/Black</mat-checkbox>
+                </section>
+                <section>
+                  <b>Temperature</b>
+                  <mat-checkbox class="example-margin">Select all</mat-checkbox>
+                  <mat-checkbox class="example-margin"
+                    >Low Temperature</mat-checkbox
+                  >
+                </section>
+                <section>
+                  <b>Size</b>
+                  <mat-checkbox class="example-margin">Select All</mat-checkbox>
+                  <mat-checkbox class="example-margin">Online</mat-checkbox>
+                  <mat-checkbox class="example-margin">Offline</mat-checkbox>
+                  <mat-checkbox class="example-margin">Low battery</mat-checkbox>
+                  <mat-checkbox class="example-margin">Unavailable</mat-checkbox>
+                  <mat-checkbox class="example-margin">Available</mat-checkbox>
+                  <mat-checkbox class="example-margin">Bound data</mat-checkbox>
+                  <mat-checkbox class="example-margin">unbound data</mat-checkbox>
+                </section>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="search">
+            <span matPrefix> </span>
+            <input
+              type="tel"
+              matInput
+              placeholder="Search"
+              name="search"
+              [(ngModel)]="search"
+            />
+            <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+          </mat-form-field>
+        </div>
+  
+        <div class="butt">
+          <button
+            mat-raised-button
+            [matMenuTriggerFor]="menu"
+            style="background: orange; color: white"
+          >
+            <mat-icon>cloud_upload</mat-icon>
+            Batch import
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item class="menu" (click)="batchImport()">
+                <p>Import Label sheet</p>
+              </button>
+              <button mat-menu-item class="menu" (click)="batchBinding()">
+                <p>Import binding sheet</p>
+              </button>
+              <button mat-menu-item class="menu" (click)="batchWarning()">
+                <p>Import Remark sheet</p>
+              </button>
+            </mat-menu>
+          </button>
+          <button
+            mat-raised-button
+            [matMenuTriggerFor]="wakeup"
+            style="background: yellowgreen; color: white"
+          >
+            <mat-icon> attach_file</mat-icon>
+            Wake up
+            <mat-menu #wakeup="matMenu">
+              <button mat-menu-item class="wakeup"><p>Wake up all</p></button>
+              <button mat-menu-item class="wakeup"><p>Wake up</p></button>
+            </mat-menu>
+          </button>
+          <button
+            mat-raised-button
+            style="background: #6699ff; color: white"
+            (click)="refresh()"
+          >
+            <mat-icon>refresh</mat-icon>
+            Refresh
+          </button>
+          <button
+            mat-raised-button
+            style="background: blueviolet; color: white"
+            (click)="deviceInfo()"
+          >
+            <mat-icon>system_update</mat-icon>
+            Upgrade
+          </button>
+          <button mat-raised-button color="primary" (click)="addDevice()">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteDevice()">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </nav>
+    </mat-toolbar>
+    <!-------Table--------
+      ----------------------
+      ----------------------
+      ----------------------
+      --------------------->
+    <table class="table" (click)="deviceInfo()">
+      <thead>
+        <tr class="table-light">
+          <th><mat-checkbox [checked]="allComplete"></mat-checkbox></th>
+          <th>S/N</th>
+          <th>Mac Address</th>
+          <th>Size</th>
+          <th>RSSI</th>
+          <th>Battery Level(%)</th>
+          <th>Online status</th>
+          <th>Last broadcast time</th>
+          <th>Last updating time</th>
+          <th>Remark</th>
+          <th>Operate</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of data2; index as i">
+        <tr>
+          <mat-checkbox></mat-checkbox>
+          <td>{{ item.sn }}</td>
+          <td>{{ item.mac_address }}</td>
+          <td>{{ item.size }}</td>
+          <td>{{ item.RSSI }}</td>
+          <td>{{ item.battery_level }}</td>
+          <td class="status">{{ item.online_status }}</td>
+          <td>{{ item.last_broadcast_time }}</td>
+          <td>{{ item.last_updating_time }}</td>
+          <td>{{ item.remark }}</td>
+  
+          <td>
+            <mat-icon (click)="details(item.id)">edit</mat-icon>
+            <mat-icon (click)="deleteDa(item.id, i)">delete_outline</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

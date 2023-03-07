@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DashboardClientRoutingModule } from './dashboard-client-routing.module';
+import { DashboardClientComponent } from './dashboard-client.component';
+import { NavClientComponent } from '../nav-client/nav-client.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,39 +24,41 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { TopbarComponent } from '../topbar/topbar.component';
+import { StoreOverviewComponent } from '../store-overview/store-overview.component';
+import { TopbarClientComponent } from '../topbar-client/topbar-client.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    NavbarComponent,
-    TopbarComponent
+    DashboardClientComponent,
+    NavClientComponent,
+    StoreOverviewComponent,
+    TopbarClientComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
-    NgbModule,
-    MatPaginatorModule,
+    DashboardClientRoutingModule,
     MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSlideToggleModule,
-    MatTabsModule,
-    MatTableModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatRadioModule,
+    MatCheckboxModule,
     MatOptionModule,
     MatSelectModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    HttpClientModule,
+    MatTableModule,
+    MatTabsModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
-export class DashboardModule { }
+export class DashboardClientModule { }
