@@ -117,6 +117,7 @@ router.get("/showversion", UserController.showversion);
 
 router.post("/appload", UserController.uploadfile);
 router.get("/bind/:id", UserController.bind);
+router.get("/bind2", UserController.bind2);
 router.post("/upload1", upload.single("xlsx"), UserController.files1);
 
 module.exports = router;

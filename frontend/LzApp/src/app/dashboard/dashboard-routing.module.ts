@@ -6,6 +6,7 @@ import { AuthorityManagementComponent } from '../authority-management/authority-
 import { DeviceManagementComponent } from '../device-management/device-management.component';
 import { EditRoleComponent } from '../edit-role/edit-role.component';
 import { GatewayManagementComponent } from '../gateway-management/gateway-management.component';
+import { GuardadminGuard } from '../guards/guardadmin.guard';
 import { OperationRecordComponent } from '../operation-record/operation-record.component';
 import { StoreManagementComponent } from '../store-management/store-management.component';
 import { SystemDataComponent } from '../system-data/system-data.component';
@@ -14,23 +15,53 @@ import { TemplateManagementComponent } from '../template-management/template-man
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, children:[
-    { path: 'storeManagement', component: StoreManagementComponent },
-  { path: 'AuthorityManagement', component: AuthorityManagementComponent },
-  { path: 'SystemData', component: SystemDataComponent },
-  { path: 'templateManagement', component: TemplateManagementComponent },
-  { path: 'gatewayManagement', component: GatewayManagementComponent },
-  { path: 'systemSettings', component: SystemSettingsComponent },
-  { path: 'deviceManagement', component: DeviceManagementComponent },
-  { path: 'operationRecord', component: OperationRecordComponent },
-  { path: 'editrole/:id', component: EditRoleComponent },
-  { path: 'addData', component: AddDataComponent },
-  { path: 'addRole', component: AddRoleComponent },
-  ] }
+  {
+    path: '',
+    component: DashboardComponent,
+    canActivate: [GuardadminGuard],
+
+    children: [
+      {
+        path: 'storeManagement',
+        component: StoreManagementComponent,
+      },
+      {
+        path: 'AuthorityManagement',
+        component: AuthorityManagementComponent,
+      },
+      {
+        path: 'SystemData',
+        component: SystemDataComponent,
+      },
+      {
+        path: 'templateManagement',
+        component: TemplateManagementComponent,
+      },
+      {
+        path: 'gatewayManagement',
+        component: GatewayManagementComponent,
+      },
+      {
+        path: 'systemSettings',
+        component: SystemSettingsComponent,
+      },
+      {
+        path: 'deviceManagement',
+        component: DeviceManagementComponent,
+      },
+      {
+        path: 'operationRecord',
+        component: OperationRecordComponent,
+      },
+      { path: 'editrole/:id', component: EditRoleComponent },
+      { path: 'addData', component: AddDataComponent },
+      { path: 'addRole', component: AddRoleComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

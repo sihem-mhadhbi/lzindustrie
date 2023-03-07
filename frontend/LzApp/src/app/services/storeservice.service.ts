@@ -1,19 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UpdateStoreComponent } from '../update-store/update-store.component';
-import { AddStoreComponent } from '../add-store/add-store.component';
-import { Observable } from 'rxjs';
+
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoreserviceService {
   dataArray;
+  token: any = localStorage.getItem('token');
 
+  helper = new JwtHelperService();
+  headerAdmin = new HttpHeaders()
+    .set('authorization', this.token)
+    .set('role', 'admin');
   constructor(private http: HttpClient) {}
 
   getAllStore() {
-    return this.http.get('http://localhost:5000/getstore');
+    return this.http.get('http://localhost:5000/getstore', {
+      headers: this.headerAdmin,
+    });
   }
 
   getDevices() {
@@ -70,7 +76,7 @@ export class StoreserviceService {
   }
 
   getproducts() {
-    return this.http.get('http://localhost:5000/getproducts');
+    return this.http.get('http://localhost:5000/bind2');
   }
 
   getsetting() {
@@ -148,5 +154,31 @@ export class StoreserviceService {
       'http://localhost:5000/api/updatetag/' + id,
       newDevice
     );
+  }
+  login(data: any) {
+    return this.http.post('http://localhost:5000/loginadmin', data);
+  }
+  isSavetoken(token: any) {
+    // let decodeToken = this.helper.decodeToken(token);
+
+    localStorage.setItem('token', token);
+  }
+
+  loggedIn() {
+    let token: any = localStorage.getItem('token');
+
+    if (!token) {
+      return false;
+    }
+    let decodeToken = this.helper.decodeToken(token);
+
+    if (decodeToken.role !== 'admin') {
+      return false;
+    }
+
+    if (this.helper.isTokenExpired(token)) {
+      return false;
+    }
+    return true;
   }
 }

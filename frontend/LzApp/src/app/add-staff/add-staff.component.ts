@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AddStaffComponent {
   hide = true;
+  messageSuccess: any;
 
   constructor(private store: StoreserviceService, private route: Router) {}
   add(f: any) {
@@ -16,6 +17,7 @@ export class AddStaffComponent {
     console.log(data);
     this.store.addStaff(data).subscribe((data) => {
       this.route.navigate(['/AuthorityManagement']);
+      this.messageSuccess = `this staff is added successfully`;
     });
   }
 }

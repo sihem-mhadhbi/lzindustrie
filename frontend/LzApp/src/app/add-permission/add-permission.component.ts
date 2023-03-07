@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-permission.component.css'],
 })
 export class AddPermissionComponent {
+  messageSuccess: any;
   constructor(private store: StoreserviceService, private route: Router) {}
   addP(f: any) {
     let data = f.value;
     console.log(data);
     this.store.addPermission(data).subscribe((data) => {
       this.route.navigate(['/AuthorityManagement']);
+      this.messageSuccess = `this permission is added successfully`;
     });
   }
 }

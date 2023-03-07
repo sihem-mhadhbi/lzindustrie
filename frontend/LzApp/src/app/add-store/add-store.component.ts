@@ -8,6 +8,7 @@ import { StoreserviceService } from '../services/storeservice.service';
   styleUrls: ['./add-store.component.css'],
 })
 export class AddStoreComponent {
+  messageSuccess: any;
   constructor(private store: StoreserviceService, private route: Router) {}
   add(f: any) {
     let data = f.value;
@@ -16,6 +17,7 @@ export class AddStoreComponent {
       (response) => {
         console.log(response);
         this.route.navigate(['/storeManagement']);
+        this.messageSuccess = `this store is added successfully`;
       },
       (err) => {
         console.log(err.error);

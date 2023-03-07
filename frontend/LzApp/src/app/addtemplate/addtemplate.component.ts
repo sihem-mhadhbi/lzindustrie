@@ -11,6 +11,7 @@ export class AddtemplateComponent {
   onSubmit() {
     console.log('submited !');
   }
+  messageSuccess: any;
   constructor(private store: StoreserviceService) {}
   addT(f: any) {
     let data = f.value;
@@ -18,6 +19,7 @@ export class AddtemplateComponent {
     this.store.addTemplate(data).subscribe(
       (response) => {
         console.log(response);
+        this.messageSuccess = `this store is added successfully`;
       },
       (err) => {
         console.log(err.error);

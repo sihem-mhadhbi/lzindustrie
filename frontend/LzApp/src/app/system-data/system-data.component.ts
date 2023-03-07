@@ -32,6 +32,7 @@ export class SystemDataComponent {
   constructor(private store: StoreserviceService, public dialog: MatDialog) {
     this.store.getproducts().subscribe((data) => {
       this.data2 = data;
+      console.log(this.data2);
     });
   }
   getnewdata(

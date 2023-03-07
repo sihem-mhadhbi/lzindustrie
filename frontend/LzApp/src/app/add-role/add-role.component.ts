@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AddRoleComponent {
   isChecked = true;
-
+  messageSuccess: any;
   constructor(private store: StoreserviceService, private route: Router) {}
   addR(f: any) {
     let data = f.value;
     console.log(data);
     this.store.addNewRole(data).subscribe((data) => {
       this.route.navigate(['/AuthorityManagement']);
+      this.messageSuccess = `this role is added successfully`;
     });
   }
   onItemChange(value) {
