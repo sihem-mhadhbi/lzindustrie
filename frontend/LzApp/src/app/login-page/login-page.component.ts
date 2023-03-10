@@ -13,13 +13,15 @@ export class LoginPageComponent {
 
   loginadmin(f: any) {
     let data = f.value;
+
     this.store.login(data).subscribe(
       (response) => {
         this.dataRecieive = response;
         this.store.isSavetoken(this.dataRecieive.token);
 
-        this.routes.navigate(['/dashboard/storeManagement']);
+        this.routes.navigate(['DashboardClient/store']);
       },
+
       (err) => {
         console.log(err);
         this.routes.navigate(['authentification/login']);

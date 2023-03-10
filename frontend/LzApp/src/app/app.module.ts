@@ -72,8 +72,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoredataClientComponent } from './storedata-client/storedata-client.component';
 import { TemplateClientComponent } from './template-client/template-client.component';
 import { GatewayClientComponent } from './gateway-client/gateway-client.component';
-import { DeviceClientComponent } from './device-client/device-client.component';
-
 
 @NgModule({
   declarations: [
@@ -125,8 +123,6 @@ import { DeviceClientComponent } from './device-client/device-client.component';
     StoredataClientComponent,
     TemplateClientComponent,
     GatewayClientComponent,
-    DeviceClientComponent,
-
   ],
   imports: [
     BrowserModule,

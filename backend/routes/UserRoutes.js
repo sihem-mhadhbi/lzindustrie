@@ -120,4 +120,6 @@ router.get("/bind/:id", UserController.bind);
 router.get("/bind2", UserController.bind2);
 router.post("/upload1", upload.single("xlsx"), UserController.files1);
 
+router.get("/storeoverview/:id", UserController.storeoverview);
+
 module.exports = router;

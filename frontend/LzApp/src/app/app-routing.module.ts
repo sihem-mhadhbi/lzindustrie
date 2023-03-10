@@ -20,12 +20,23 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: 'DashboardClient', loadChildren: () => import('./dashboard-client/dashboard-client.module').then(m => m.DashboardClientModule) },
   {
-    path:'Client', redirectTo:'DashboardClient', pathMatch:'full'
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-
+  {
+    path: 'DashboardClient',
+    loadChildren: () =>
+      import('./dashboard-client/dashboard-client.module').then(
+        (m) => m.DashboardClientModule
+      ),
+  },
+  {
+    path: 'Client',
+    redirectTo: 'DashboardClient',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

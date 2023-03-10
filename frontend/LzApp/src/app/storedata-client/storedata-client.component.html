@@ -1,210 +1,190 @@
 <div class="container">
-    <nav class="navbar">
-      <mat-form-field class="example-full-width">
-        <input
-          type="tel"
-          matInput
-          placeholder="Search"
-          name="search"
-          [(ngModel)]="search"
-        />
-        <button matSuffix mat-button><mat-icon>search</mat-icon></button>
-      </mat-form-field>
-  
-      <div class="buttons">
+  <nav class="navbar">
+    <mat-form-field class="example-full-width">
+      <input type="tel" matInput placeholder="Search" name="search" />
+      <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button
+        mat-raised-button
+        class="radius"
+        style="background: #00e64d"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openDialogImp()">Import data</button>
+          <button mat-menu-item (click)="reservation()">
+            Reservation record
+          </button> </mat-menu
+        >Import
+        <mat-icon>cloud_upload</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        class="radius"
+        style="background: #6699ff"
+        (click)="exportData()"
+      >
+        Export
+        <mat-icon>cloud_download</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        class="radius"
+        color="primary"
+        (click)="addData()"
+      >
+        <mat-icon>add</mat-icon>
+        Add
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        class="radius"
+        (click)="openDialog('0ms', '0ms')"
+      >
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+    </div>
+  </nav>
+
+  <table class="table">
+    <thead>
+      <tr class="table-light">
+        <th><mat-checkbox></mat-checkbox></th>
+        <th>S/N</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Number</th>
+        <th>Status</th>
+        <th>Operate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><mat-checkbox></mat-checkbox></td>
+        <td></td>
+
+        <td>
+          <mat-icon
+            class="material-icons"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            >edit</mat-icon
+          >
+          <mat-icon>delete_outline</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit data</h5>
         <button
-          mat-raised-button
-          class="radius"
-          style="background: #00e64d"
-          [matMenuTriggerFor]="menu"
-        >
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openDialogImp()">Import data</button>
-            <button mat-menu-item (click)="reservation()">
-              Reservation record
-            </button> </mat-menu>Import
-          <mat-icon>cloud_upload</mat-icon>
-        </button>
-        <button
-          mat-raised-button
-          class="radius"
-          style="background: #6699ff"
-          (click)="exportData()"
-        >
-          Export
-          <mat-icon>cloud_download</mat-icon>
-        </button>
-        <button mat-raised-button class="radius" color="primary" (click)="addData()">
-          <mat-icon>add</mat-icon>
-          Add
-        </button>
-        <button mat-raised-button color="warn" class="radius" (click)="openDialog('0ms', '0ms')">
-          <mat-icon>delete</mat-icon>
-          Delete
-        </button>
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-    </nav>
-  
-    <table class="table">
-      <thead>
-        <tr class="table-light">
-          <th><mat-checkbox></mat-checkbox></th>
-          <th>S/N</th>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Number</th>
-          <th>Status</th>
-          <th>Operate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of data2; index as i">
-          <td><mat-checkbox></mat-checkbox></td>
-          <td>{{ item.SN }}</td>
-          <td>{{ item.product_id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.price_per_unit }}</td>
-          <td>{{ item.number }}</td>
-          <td>{{ item.status }}</td>
-          <td>
-            <mat-icon
-              (click)="
-                getnewdata(
-                  item.name,
-                  item.price_per_unit,
-                  item.SN,
-                  item.number,
-                  item.status,
-                  item.barcode,
-                  item.product_id
-                )
-              "
-              class="material-icons"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              >edit</mat-icon
-            >
-            <mat-icon (click)="deleteD(item.product_id, i)"
-              >delete_outline</mat-icon
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">edit data</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form class="example-form" #f="ngForm" (ngSubmit)="editnewdata(f)">
-            <mat-form-field class="example-full-width">
-              <mat-label>Name</mat-label>
-              <input
-                type="number"
-                placeholder="name"
-                [(ngModel)]="dataPR.name"
-                name="name"
-                #store_no="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-  
-            <mat-form-field class="example-full-width">
-              <mat-label>price_per_unit</mat-label>
-              <input
-                type="text"
-                placeholder="price_per_unit"
-                [(ngModel)]="dataPR.price_per_unit"
-                name="price_per_unit"
-                #store_no="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-  
-            <mat-form-field class="example-full-width">
-              <mat-label>SN</mat-label>
-              <input
-                matInput
-                placeholder="SN"
-                [(ngModel)]="dataPR.SN"
-                name="SN"
-                #SN="ngModel"
-                required
-                ngModel
-              /> </mat-form-field
-            ><br />
-            <mat-form-field class="example-full-width">
-              <mat-label>number</mat-label>
-              <input
-                type="text"
-                placeholder="number"
-                [(ngModel)]="dataPR.number"
-                name="number"
-                #number="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>status</mat-label>
-              <input
-                type="text"
-                placeholder="status"
-                [(ngModel)]="dataPR.status"
-                name="status"
-                #status="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>barcode</mat-label>
-              <input
-                type="text"
-                placeholder="barcode"
-                [(ngModel)]="dataPR.barcode"
-                name="barcode"
-                #barcode="ngModel"
-                required
-                ngModel
-                matInput
-              />
-            </mat-form-field>
-  
-            <div class="footer">
-              <div class="space"></div>
-              <button mat-raised-button color="primary">Confirm</button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer"></div>
-        <div class="alert alert-success" *ngIf="messageSuccess">
-          {{ messageSuccess }}
-        </div>
+      <div class="modal-body">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              type="number"
+              placeholder="name"
+              name="name"
+              #store_no="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>price_per_unit</mat-label>
+            <input
+              type="text"
+              placeholder="price_per_unit"
+              name="price_per_unit"
+              #store_no="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>SN</mat-label>
+            <input
+              matInput
+              placeholder="SN"
+              name="SN"
+              #SN="ngModel"
+              required
+              ngModel
+            /> </mat-form-field
+          ><br />
+          <mat-form-field class="example-full-width">
+            <mat-label>number</mat-label>
+            <input
+              type="text"
+              placeholder="number"
+              name="number"
+              #number="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>status</mat-label>
+            <input
+              type="text"
+              placeholder="status"
+              name="status"
+              #status="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>barcode</mat-label>
+            <input
+              type="text"
+              placeholder="barcode"
+              [(ngModel)]="dataPR.barcode"
+              name="barcode"
+              #barcode="ngModel"
+              required
+              ngModel
+              matInput
+            />
+          </mat-form-field>
+
+          <div class="footer">
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Confirm</button>
+          </div>
+        </form>
       </div>
+      <div class="modal-footer"></div>
+      <div class="alert alert-success"></div>
     </div>
   </div>
-  
+</div>

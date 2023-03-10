@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AddStoreComponent } from '../add-store/add-store.component';
 
 import { StoreserviceService } from '../services/storeservice.service';
 import { UpdateStoreComponent } from '../update-store/update-store.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-management',
@@ -14,12 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class StoreManagementComponent implements OnInit, OnDestroy {
   dataArray: any;
-  profil = {
-    store_no: '',
-    storeName: '',
-    storeImage: '',
-    storeAddress: '',
-  };
+
   dataT = {
     store_no: 0,
     storeName: '',
@@ -29,12 +25,13 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
   };
   messageSuccess = '';
 
-  constructor(private store: StoreserviceService, private dialog: MatDialog) {
+  constructor(
+    private store: StoreserviceService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {
     this.store.getAllStore().subscribe((data) => {
       this.dataArray = data;
-      this.store.addnewStore(this.profil).subscribe((data) => {
-        console.log(data);
-      });
     });
   }
   ngOnDestroy(): void {
@@ -42,13 +39,13 @@ export class StoreManagementComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {}
-  OnDestroy() {}
   openDialog() {
     this.dialog.open(AddStoreComponent, {
       width: '500px',
       height: '75%',
     });
   }
+
   getst(
     store_no: number,
     storeName: string,

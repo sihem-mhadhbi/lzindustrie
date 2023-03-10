@@ -1,133 +1,114 @@
 <div class="container">
-    <mat-toolbar>
-      <button mat-raised-button color="primary" (click)="addGetway()">
-        <mat-icon>add</mat-icon>
-        Add
-      </button>
-      <button
-        mat-raised-button
-        (click)="wifi()"
-        style="background: #00cc66; color: white"
-      >
-        <mat-icon>signal_wifi_4_bar</mat-icon>
-        Wifi faremware upgrade
-      </button>
-      <button
-        mat-raised-button
-        (click)="bluetooth()"
-        style="background: #ffa500; color: white"
-      >
-        <mat-icon>bluetooth_audio</mat-icon>
-        Bluetooth faremware upgrade
-      </button>
-    </mat-toolbar>
-    <table class="table">
-      <thead>
-        <tr class="table-light">
-          <th><mat-checkbox></mat-checkbox></th>
-          <th>S/N</th>
-          <th>Mac Name</th>
-          <th>Mac Address</th>
-          <th>Status</th>
-          <th>Updating time</th>
-          <th>Model No.</th>
-          <th>Wifi faremware version</th>
-          <th>Bluetooth faremware version</th>
-          <th>Operate</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let item of data2; index as i">
-        <tr>
-          <mat-checkbox></mat-checkbox>
-          <td>{{ item.sn }}</td>
-          <td>{{ item.macName }}</td>
-          <td>{{ item.macAddress }}</td>
-          <td class="status">{{ item.status }}</td>
-          <td>{{ item.updatingTime }}</td>
-          <td>{{ item.modelNo }}</td>
-          <td>{{ item.wifiFirmwareVersion }}</td>
-          <td>{{ item.bluetoothFirmwareVersion }}</td>
-          <td>
-            <mat-icon>wifi_tethering</mat-icon>
-            <mat-icon
-              (click)="getro(item.macName, item.macAddress, item.id)"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              >edit</mat-icon
-            >
-            <mat-icon (click)="deletegatewey(item.id, i)"
-              >delete_outline</mat-icon
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <mat-paginator [length]="100" [pageSize]="3" aria-label="Select page">
-    </mat-paginator>
-  </div>
-  
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit gateway</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="head"></div>
-  
-          <form class="example-form" #f="ngForm" (ngSubmit)="editnewgateway(f)">
-            <div mat-dialog-content>
-              <mat-form-field class="example-full-width" aria-required="true">
-                <mat-label>*Mac name</mat-label>
-                <input
-                  type="text"
-                  placeholder="macName"
-                  name="macName"
-                  #macName="ngModel"
-                  [(ngModel)]="dataP.macName"
-                  required
-                  ngModel
-                  matInput
-                />
-              </mat-form-field>
-              <mat-form-field class="example-full-width" aria-required="true">
-                <mat-label>*Mac address</mat-label>
-                <input
-                  type="text"
-                  placeholder="macAddress"
-                  name="macAddress"
-                  #macAddress="ngModel"
-                  [(ngModel)]="dataP.macAddress"
-                  required
-                  ngModel
-                  matInput
-                />
-              </mat-form-field>
-            </div>
-            <div class="footer" mat-dialog-actions>
-              <div class="space"></div>
-              <button mat-raised-button color="primary">Confirm</button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer"></div>
+  <mat-toolbar>
+    <button mat-raised-button color="primary" (click)="addGetway()">
+      <mat-icon>add</mat-icon>
+      Add
+    </button>
+    <button
+      mat-raised-button
+      (click)="wifi()"
+      style="background: #00cc66; color: white"
+    >
+      <mat-icon>signal_wifi_4_bar</mat-icon>
+      Wifi faremware upgrade
+    </button>
+    <button
+      mat-raised-button
+      (click)="bluetooth()"
+      style="background: #ffa500; color: white"
+    >
+      <mat-icon>bluetooth_audio</mat-icon>
+      Bluetooth faremware upgrade
+    </button>
+  </mat-toolbar>
+  <table class="table">
+    <thead>
+      <tr class="table-light">
+        <th><mat-checkbox></mat-checkbox></th>
+        <th>S/N</th>
+        <th>Mac Name</th>
+        <th>Mac Address</th>
+        <th>Status</th>
+        <th>Updating time</th>
+        <th>Model No.</th>
+        <th>Wifi faremware version</th>
+        <th>Bluetooth faremware version</th>
+        <th>Operate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <mat-checkbox></mat-checkbox>
+
+        <mat-icon>wifi_tethering</mat-icon>
+        <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal"
+          >edit</mat-icon
+        >
+        <mat-icon>delete_outline</mat-icon>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="100" [pageSize]="3" aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit gateway</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="alert alert-success" *ngIf="messageSuccess">
-        {{ messageSuccess }}
+      <div class="modal-body">
+        <div class="head"></div>
+
+        <form class="example-form" #f="ngForm">
+          <div mat-dialog-content>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>*Mac name</mat-label>
+              <input
+                type="text"
+                placeholder="macName"
+                name="macName"
+                #macName="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" aria-required="true">
+              <mat-label>*Mac address</mat-label>
+              <input
+                type="text"
+                placeholder="macAddress"
+                name="macAddress"
+                #macAddress="ngModel"
+                required
+                ngModel
+                matInput
+              />
+            </mat-form-field>
+          </div>
+          <div class="footer" mat-dialog-actions>
+            <div class="space"></div>
+            <button mat-raised-button color="primary">Confirm</button>
+          </div>
+        </form>
       </div>
+      <div class="modal-footer"></div>
     </div>
+    <div class="alert alert-success"></div>
   </div>
-  
+</div>

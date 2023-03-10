@@ -23,18 +23,29 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AuthorityManagementComponent {
   hide = true;
+  isSelected: boolean = false;
   messageSuccess = '';
   messageSuccesss = '';
   messageSuccessp = '';
+  isChecked1 = true;
+
   isChecked = true;
 
   dataArray1: any;
   dataArray2: any;
   dataArray3: any;
+
+  role = {
+    role1: 'store_management',
+    role2: 'system_data',
+    role3: 'system_template',
+    role4: 'system_record',
+  };
   dataT = {
     roleName: '',
     roleDescription: '',
     roleType: 0,
+    role_permission: 0,
     role_id: '',
   };
   dataF = {
@@ -66,6 +77,7 @@ export class AuthorityManagementComponent {
       this.dataArray3 = data;
     });
   }
+
   delete(permission_id: any, i: number) {
     this.store.deletePermission(permission_id).subscribe((response) => {
       console.log(response);
@@ -84,7 +96,9 @@ export class AuthorityManagementComponent {
         this.dataArray2[indexId].roleName = data.roleName;
         this.dataArray2[indexId].roleDescription = data.roleDescription;
         this.dataArray2[indexId].roleType = data.roleType;
+        this.dataArray2[indexId].role_permission = data.role_permission;
         this.messageSuccess = `this role ${this.dataArray2[indexId].roleType} is updated`;
+        console.log(data);
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
@@ -161,12 +175,14 @@ export class AuthorityManagementComponent {
     roleName: string,
     roleDescription: string,
     roleType: any,
+    role_permission: any,
     role_id: any
   ) {
     this.messageSuccess = '';
     this.dataT.roleName = roleName;
     this.dataT.roleDescription = roleDescription;
     this.dataT.roleType = roleType;
+    this.dataT.role_permission = role_permission;
     this.dataT.role_id = role_id;
     console.log(this.dataT);
   }

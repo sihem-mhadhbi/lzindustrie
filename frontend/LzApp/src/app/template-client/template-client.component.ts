@@ -8,23 +8,13 @@ import { StoreserviceService } from '../services/storeservice.service';
 @Component({
   selector: 'app-template-client',
   templateUrl: './template-client.component.html',
-  styleUrls: ['./template-client.component.css']
+  styleUrls: ['./template-client.component.css'],
 })
 export class TemplateClientComponent {
   search = '';
   isChecked = true;
-  dataArray: any;
-  dattemplate = {
-    templateName: '',
-    screenSize: '',
-    selectableColor: 0,
-    id: 0,
-  };
-  constructor(private store: StoreserviceService, public dialog: MatDialog) {
-    this.store.getTemplate().subscribe((data) => {
-      this.dataArray = data;
-    });
-  }
+
+  constructor(public dialog: MatDialog) {}
 
   add() {
     this.dialog.open(AddtemplateComponent, {
@@ -32,18 +22,7 @@ export class TemplateClientComponent {
       height: '90%',
     });
   }
-  getCopy(templateName: string, screenSize: any, id: any) {
-    this.dattemplate.templateName = templateName;
-    this.dattemplate.screenSize = screenSize;
-    this.dattemplate.id = id;
-    console.log(this.dattemplate);
-  }
-  deleteT(id: any, i: number) {
-    this.store.deleteTemplate(id).subscribe((response) => {
-      console.log(response);
-      this.dataArray.splice(i, 1);
-    });
-  }
+
   supp() {
     this.dialog.open(DeleteTemplateComponent, {
       width: '500px',

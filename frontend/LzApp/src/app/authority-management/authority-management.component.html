@@ -25,6 +25,8 @@
             <th>Role Name</th>
             <th>Role Description</th>
             <th>Role type</th>
+            <th>Role permission</th>
+
             <th>Operate</th>
           </tr>
         </thead>
@@ -33,6 +35,8 @@
             <td>{{ item.roleName }}</td>
             <td>{{ item.roleDescription }}</td>
             <td>{{ item.roleType }}</td>
+            <td>{{ item.role_permission }}</td>
+
             <td>
               <mat-icon
                 (click)="
@@ -40,6 +44,7 @@
                     item.roleName,
                     item.roleDescription,
                     item.roleType,
+                    item.role_permission,
                     item.role_id
                   )
                 "
@@ -315,6 +320,8 @@
               />
             </mat-form-field>
           </div>
+          <span>roleType</span>
+          <br />
           <label>
             <input
               [value]="1"
@@ -323,7 +330,9 @@
               type="radio"
               [checked]="isChecked"
             />
+            systemrole
           </label>
+          <br />
           <label>
             <input
               [value]="2"
@@ -332,21 +341,65 @@
               type="radio"
               [checked]="!isChecked"
             />
+            storerole
           </label>
 
           <div *ngIf="dataT.roleType == 1">systemrole</div>
           <div *ngIf="dataT.roleType == 2">storerole</div>
 
-          <section style="padding-top: 10px">
+          <div style="padding-top: 10px">
             Role Permission <br />
-            <mat-checkbox class="example-margin">Store management</mat-checkbox
-            ><br />
-            <mat-checkbox class="example-margin">System data</mat-checkbox
-            ><br />
-            <mat-checkbox class="example-margin">System template</mat-checkbox
-            ><br />
-            <mat-checkbox class="example-margin">System record</mat-checkbox>
-          </section>
+
+            <label>
+              <input
+                [value]="role.role1"
+                [(ngModel)]="dataT.role_permission"
+                name="role_permission"
+                type="radio"
+                [checked]="isChecked1"
+              />
+              Store management
+            </label>
+            <br />
+            <label>
+              <input
+                [value]="role.role2"
+                [(ngModel)]="dataT.role_permission"
+                name="role_permission"
+                type="radio"
+                [checked]="!isChecked1"
+              />
+              System data
+            </label>
+            <br />
+            <label>
+              <input
+                [value]="role.role3"
+                [(ngModel)]="dataT.role_permission"
+                name="role_permission"
+                type="radio"
+                [checked]="!isChecked1"
+              />
+              System template
+            </label>
+            <br />
+            <label>
+              <input
+                [value]="role.role4"
+                [(ngModel)]="dataT.role_permission"
+                name="role_permission"
+                type="radio"
+                [checked]="!isChecked1"
+              />
+              System record
+            </label>
+
+            <div *ngIf="dataT.role_permission == 1">Store management</div>
+            <div *ngIf="dataT.role_permission == 2">System data</div>
+            <div *ngIf="dataT.role_permission == 3">System template</div>
+            <div *ngIf="dataT.role_permission == 4">System record</div>
+          </div>
+          <br />
 
           <div class="footer">
             <div class="space"></div>
@@ -449,7 +502,7 @@
               <mat-hint>Enter your password</mat-hint>
             </mat-form-field>
             <mat-radio-group aria-label="Select an option">
-              <label>Status</label>
+              <span>Status</span>
               <label>
                 <input
                   [value]="1"
@@ -458,6 +511,7 @@
                   type="radio"
                   [checked]="isChecked"
                 />
+                Normal
               </label>
               <label>
                 <input
@@ -466,7 +520,7 @@
                   name="status"
                   type="radio"
                   [checked]="!isChecked"
-                />
+                />Disable
               </label>
 
               <div *ngIf="dataF.status == 1">Normal</div>

@@ -128,11 +128,15 @@ exports.loginstaff = (req, res) => {
             return res.status(401).json({ msg: "Email Or Password Incorrect" });
           } else {
             const id = result[0].staff_id;
-            const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
-              expiresIn: process.env.JWT_EXPIRES_IN,
-            });
+            const token = jwt.sign(
+              { id: id, role: "staff" },
+              process.env.JWT_SECRET,
+              {
+                expiresIn: process.env.JWT_EXPIRES_IN,
+              }
+            );
 
-            res.json({ result, token });
+            res.json({ token, role: "staff" });
           }
         }
       }
@@ -405,24 +409,28 @@ exports.getRole1 = (req, res) => {
 };
 // Add role
 exports.addRole = (req, res) => {
-  const { roleName, roleDescription, roleType } = req.body;
+  const { roleName, roleDescription, roleType, role_permission } = req.body;
   const sqlGet =
-    "INSERT INTO store_db.rolemanagement(roleName,roleDescription,roleType) VALUES (?,?,?);";
-  db.query(sqlGet, [roleName, roleDescription, roleType], (error, result) => {
-    res.send(result);
-  });
+    "INSERT INTO store_db.rolemanagement(roleName,roleDescription,roleType,role_permission) VALUES (?,?,?,?);";
+  db.query(
+    sqlGet,
+    [roleName, roleDescription, roleType, role_permission],
+    (error, result) => {
+      res.send(result);
+    }
+  );
 };
 
 // update role
 exports.updateRole = (req, res) => {
   const { id } = req.params;
-  const { roleName, roleDescription, roleType } = req.body;
+  const { roleName, roleDescription, roleType, role_permission } = req.body;
 
   const sqlupdate =
-    "UPDATE store_db.rolemanagement SET roleName= ?, roleDescription=?,roleType=? WHERE role_id = ? ;";
+    "UPDATE store_db.rolemanagement SET roleName= ?, roleDescription=?,roleType=?,role_permission=? WHERE role_id = ?;";
   db.query(
     sqlupdate,
-    [roleName, roleDescription, roleType, id],
+    [roleName, roleDescription, roleType, role_permission, id],
     (error, result) => {
       if (error) {
         console.log(error);
@@ -1050,6 +1058,19 @@ exports.bind2 = async (req, res) => {
   const sqlGet =
     "SELECT * FROM store_db.products INNER JOIN store_db.tag_management ON store_db.products.product_id=store_db.tag_management.product_id  ";
   db.query(sqlGet, (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(result);
+  });
+};
+// store and client
+exports.storeoverview = async (req, res) => {
+  const { id } = req.params;
+
+  const sqlGet =
+    "SELECT store_no,storeName,storeImage,storeAddress FROM store_db.store INNER JOIN store_db.staffmanagement ON store_db.store.id=store_db.staffmanagement.staff_id WHERE store_db.staffmanagement.staff_id=?";
+  db.query(sqlGet, id, (error, result) => {
     if (error) {
       console.log(error);
     }

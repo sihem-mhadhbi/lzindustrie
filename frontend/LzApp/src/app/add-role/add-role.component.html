@@ -32,20 +32,88 @@
     </mat-form-field>
   </div>
 
-  <mat-radio-group aria-label="Select an option"
-    >Role type:
-    <mat-radio-button value="1">System role</mat-radio-button>
-    <mat-radio-button value="2">Store role</mat-radio-button>
-  </mat-radio-group>
+  <span> Role type: </span>
+  <br />
+  <label>
+    <input
+      [value]="1"
+      [(ngModel)]="data2.roleType"
+      name="roleType"
+      type="radio"
+      [checked]="isChecked"
+    />
 
-  <section style="padding-top: 10px">
-    Role Permission <br />
-    <mat-checkbox class="example-margin">Store management</mat-checkbox><br />
-    <mat-checkbox class="example-margin">System data</mat-checkbox><br />
-    <mat-checkbox class="example-margin">System template</mat-checkbox><br />
-    <mat-checkbox class="example-margin">System record</mat-checkbox>
-  </section>
+    systemrole
+  </label>
+  <br />
 
+  <label>
+    <input
+      [value]="2"
+      [(ngModel)]="data2.roleType"
+      name="roleType"
+      type="radio"
+      [checked]="!isChecked"
+    />storerole
+  </label>
+
+  <div *ngIf="data2.roleType == 1">systemrole</div>
+  <div *ngIf="data2.roleType == 2">storerole</div>
+  <div>
+    <span> Role permission: </span>
+    <br />
+
+    <label>
+      <input
+        [value]="role.role1"
+        [(ngModel)]="data2.role_permission"
+        name="role_permission"
+        type="radio"
+        [checked]="isChecked1"
+      />
+      Store management
+    </label>
+    <br />
+    <label>
+      <input
+        [value]="role.role2"
+        [(ngModel)]="data2.role_permission"
+        name="role_permission"
+        type="radio"
+        [checked]="!isChecked1"
+      />
+      System data
+    </label>
+    <br />
+
+    <label>
+      <input
+        [value]="role.role3"
+        [(ngModel)]="data2.role_permission"
+        name="role_permission"
+        type="radio"
+        [checked]="!isChecked1"
+      />
+      System template
+    </label>
+    <br />
+
+    <label>
+      <input
+        [value]="role.role4"
+        [(ngModel)]="data2.role_permission"
+        name="role_permission"
+        type="radio"
+        [checked]="!isChecked1"
+      />
+      System record
+    </label>
+
+    <div *ngIf="data2.role_permission == 1">Store management</div>
+    <div *ngIf="data2.role_permission == 2">System data</div>
+    <div *ngIf="data2.role_permission == 3">System template</div>
+    <div *ngIf="data2.role_permission == 4">System record</div>
+  </div>
   <div class="footer">
     <button mat-raised-button mat-dialog-close>Cancel</button>
     <div class="space"></div>

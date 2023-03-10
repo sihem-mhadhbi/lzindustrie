@@ -28,6 +28,9 @@ export class StoreserviceService {
   getTemplate() {
     return this.http.get('http://localhost:5000/gettemplate');
   }
+  getOneStore(id: any) {
+    return this.http.get('http://localhost:5000/getstore1/:id' + id);
+  }
   getOneTemplate(id: any) {
     return this.http.get('http://localhost:5000/gettemplate/' + id);
   }
@@ -156,7 +159,7 @@ export class StoreserviceService {
     );
   }
   login(data: any) {
-    return this.http.post('http://localhost:5000/loginadmin', data);
+    return this.http.post('http://localhost:5000/loginstaff', data);
   }
   isSavetoken(token: any) {
     // let decodeToken = this.helper.decodeToken(token);
@@ -172,7 +175,7 @@ export class StoreserviceService {
     }
     let decodeToken = this.helper.decodeToken(token);
 
-    if (decodeToken.role !== 'admin') {
+    if (decodeToken.role !== 'staff') {
       return false;
     }
 
@@ -180,5 +183,8 @@ export class StoreserviceService {
       return false;
     }
     return true;
+  }
+  storeoverview(id: any) {
+    return this.http.get('http://localhost:5000/storeoverview', id);
   }
 }
